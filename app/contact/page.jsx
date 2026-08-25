@@ -1,4 +1,4 @@
-import NousContacter from "@/src/component/ui/Apropos/nous-contacter";
+import NousContacter from "@/src/component/ui/Apropos/nous-contacter/index.jsx";
 
 export const metadata = {
   title: "Nous Contacter | Aletheia TRC",

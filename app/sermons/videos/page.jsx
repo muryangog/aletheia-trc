@@ -1,4 +1,4 @@
-import SermonsVideo from "@/src/component/ui/sermons/video";
+import SermonsVideo from "@/src/component/ui/sermons/video/index.jsx";
 
 export const metadata = {
   title: "Sermons Vidéo | Aletheia TRC",

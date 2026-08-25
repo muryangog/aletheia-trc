@@ -1,7 +1,16 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Share2, Play, Heart, MessageCircle, ArrowUpRight, Radio, ExternalLink } from "lucide-react";
+import {
+  BookOpen,
+  Share2,
+  Play,
+  Heart,
+  MessageCircle,
+  ArrowUpRight,
+  Radio,
+  ExternalLink,
+} from "lucide-react";
 import Image from "next/image";
 import DevotionNav from "./DevotionNav";
 
@@ -115,9 +124,15 @@ export default function DailyDevotion() {
                           ✓
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-400 font-medium">
+                      <span className="text-[11px] text-slate-400 font-medium block">
                         {devotions[lang].date} · Publié par l'équipe Média · 🌐
                       </span>
+                      <div className="flex items-center gap-1 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[9px] text-emerald-600 dark:text-emerald-405 font-bold uppercase tracking-wider">
+                          Facebook Live Sync
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -202,9 +217,12 @@ export default function DailyDevotion() {
               <h4 className="text-[#48a848] font-bold text-[10px] uppercase mb-1 tracking-wider">
                 Aletheia Academy
               </h4>
-              <h3 className="text-xl font-bold mb-3 italic font-serif">PLEROMA Class</h3>
+              <h3 className="text-xl font-bold mb-3 italic font-serif">
+                PLEROMA Class
+              </h3>
               <p className="text-slate-300 text-xs mb-5 leading-relaxed">
-                Rejoignez nos cours approfondis d'affermissement doctrinal et de théologie pratique.
+                Rejoignez nos cours approfondis d'affermissement doctrinal et de
+                théologie pratique.
               </p>
               <a
                 href="/ministeres"
@@ -223,7 +241,8 @@ export default function DailyDevotion() {
                 English Podcast
               </h3>
               <p className="text-white/90 text-xs mb-5 leading-relaxed">
-                Revivez les sessions spéciales de réveil spirituel et les messages hebdomadaires.
+                Revivez les sessions spéciales de réveil spirituel et les
+                messages hebdomadaires.
               </p>
               <a
                 href="/sermons/audio"

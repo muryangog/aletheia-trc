@@ -1,9 +1,9 @@
 // src/component/home/SermonFilter.jsx
 "use client";
 import { motion } from "framer-motion";
-import { Search, Calendar, User, BookOpen } from "lucide-react";
+import { Search, Calendar, User, BookOpen, ChevronDown } from "lucide-react";
 
-export default function SermonFilter({ id }) {
+export default function SermonFilter({ id, selected = "", setSelected }) {
   return (
     <motion.div
       key={`filter-${id}`}
@@ -25,21 +25,52 @@ export default function SermonFilter({ id }) {
         <div className="hidden md:block w-px h-8 bg-white/20"></div>
 
         {/* Prédicateur */}
-        <div className="relative flex-1 w-full">
-          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 w-5 h-5" />
-          <select className="w-full bg-white/5 border-none focus:ring-2 focus:ring-green-500 text-white appearance-none pl-12 pr-4 py-3 rounded-full text-sm outline-none cursor-pointer">
-            <option className="text-gray-900" value="">
+        <div className="relative flex-1 w-full group">
+          {/* Icône Prédicateur / Utilisateur à gauche */}
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-[#5cbd5c] transition-colors pointer-events-none z-10">
+            <User className="w-5 h-5" />
+          </div>
+
+          {/* Select principal */}
+          <select
+            value={selected}
+            onChange={(e) => setSelected?.(e.target.value)}
+            className="w-full bg-white/10 dark:bg-slate-900/60 backdrop-blur-md border border-white/15 dark:border-slate-800 text-white font-medium pl-12 pr-10 py-3.5 rounded-2xl text-sm outline-none cursor-pointer appearance-none shadow-sm hover:bg-white/15 hover:border-white/25 focus:ring-2 focus:ring-[#48a848] focus:border-transparent transition-all duration-200">
+            <option className="bg-[#0c2448] text-white py-2" value="">
               Tous les Prédicateurs
             </option>
-            <option className="text-gray-900" value="pasteur1">
-              Pasteur Jean
+            <option
+              className="bg-[#0c2448] text-white py-2"
+              value="prophete-evrard">
+              Prophète SINAGAYE Evrard
             </option>
-            <option className="text-gray-900" value="pasteur2">
-              Pasteur Marc
+            <option
+              className="bg-[#0c2448] text-white py-2"
+              value="pasteur-eric">
+              Pasteur BIKONESA Eric
+            </option>
+            <option
+              className="bg-[#0c2448] text-white py-2"
+              value="apotre-audilon">
+              Apôtre AUDILON
+            </option>
+            <option
+              className="bg-[#0c2448] text-white py-2"
+              value="apotre-divin">
+              Apôtre DIVIN
+            </option>
+            <option
+              className="bg-[#0c2448] text-white py-2"
+              value="evangeliste-ines">
+              Évangéliste SINAGAYE Inès
             </option>
           </select>
-        </div>
 
+          {/* Flèche Chevron à droite */}
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+            <ChevronDown className="w-4 h-4 group-hover:text-white transition-colors" />
+          </div>
+        </div>
         {/* Date */}
         <div className="relative flex-1 w-full">
           <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 w-5 h-5" />

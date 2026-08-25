@@ -1,4 +1,4 @@
-import NosCroyances from "@/src/component/ui/Apropos/nos-croyances";
+import NosCroyances from "@/src/component/ui/Apropos/nos-croyances/index.jsx";
 
 export const metadata = {
   title: "Nos Croyances & Doctrine | Aletheia TRC",

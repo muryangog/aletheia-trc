@@ -5,7 +5,9 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import NavSermon from "./NavSermon";
 import NavApropos from "./Apropos";
+import NavRessources from "./NavRessources";
 import { Search, Moon, Sun, Menu, X, Clock } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 // ── Couleurs extraites du logo ──────────────────────────────────────────────
 // Bleu marine : #0c2448  |  Vert : #48a848
@@ -13,6 +15,7 @@ import { Search, Moon, Sun, Menu, X, Clock } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const pathname = usePathname();
 
   const toggleDarkMode = () => {
     const isDark = document.documentElement.classList.toggle("dark");
@@ -34,19 +37,20 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <span className="flex items-center gap-1.5 text-[11px] text-white/45 tracking-wider">
             <Clock size={11} />
-            Dimanche · Service à 9h &amp; 11h
+            Mercredi · Louange de 17h30 &amp; 19h30 | <Clock size={11} />{" "}
+            Dimanche · Service de 9h &amp; 12h30
           </span>
           <span className="hidden sm:flex items-center gap-3 text-[11px] text-white/45 tracking-wider">
             Suivez-nous ·
             <a
-              href="https://www.youtube.com/@aletheiatruthrevealedchurc4758"
+              href="https://www.youtube.com/results?search_query=aletheia+truth+revealed+church"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#5cbd5c] hover:text-white transition-colors">
               YouTube
             </a>
             <a
-              href="https://www.facebook.com/aletheiatruthrevealed"
+              href="https://www.facebook.com/search/top/?q=aletheia%20truth%20revealed"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#5cbd5c] hover:text-white transition-colors">
@@ -66,9 +70,9 @@ export default function Navbar() {
                 <Image
                   src="/Logo_aletheia.png"
                   alt="Logo Aletheia"
-                  width={56}
-                  height={56}
-                  className="w-auto h-[54px] dark:brightness-110"
+                  width={72}
+                  height={72}
+                  className="w-auto h-[65px] dark:brightness-110"
                   priority
                 />
               </Link>
@@ -153,19 +157,32 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="bg-[#0c2448] dark:bg-[#0a1a30] pointer-events-auto
-                       inline-flex items-center h-[50px] px-2 gap-0.5
-                       rounded-full border border-white/7
-                       shadow-[0_10px_36px_rgba(12,36,72,0.28),0_2px_8px_rgba(12,36,72,0.15)]">
-            <NavLink href="/" label="Accueil" isActive />
+                     inline-flex items-center h-[50px] px-2 gap-0.5
+                     rounded-full border border-white/10
+                     shadow-[0_10px_36px_rgba(12,36,72,0.28),0_2px_8px_rgba(12,36,72,0.15)] relative">
+            <NavLink href="/" label="Accueil" activePath={pathname} />
             <Separator />
-            <NavApropos />
-            <NavSermon />
-            <NavLink href="/evenements" label="Événements" />
-            <NavLink href="/ministeres" label="Ministères" />
+            <NavApropos activePath={pathname} />
+            <NavSermon activePath={pathname} />
+            <NavRessources activePath={pathname} />
+            <NavLink
+              href="/ministeres"
+              label="Ministères"
+              activePath={pathname}
+            />
             <Separator />
-            <NavLink href="/don" label="Faire un Don" isGreen />
+            <NavLink
+              href="/don"
+              label="Faire un Don"
+              isGreen
+              activePath={pathname}
+            />
             <Separator />
-            <NavLink href="/contact" label="Nous Contacter" />
+            <NavLink
+              href="/contact"
+              label="Nous Contacter"
+              activePath={pathname}
+            />
           </motion.div>
         </div>
       </div>
@@ -185,24 +202,34 @@ function Separator() {
   return <div className="w-px h-[18px] bg-white/9 mx-1 flex-shrink-0" />;
 }
 
-function NavLink({ href, label, isGreen = false, isActive = false }) {
+function NavLink({ href, label, isGreen, activePath }) {
+  // Le lien est actif si l'URL actuelle correspond à l'attribut href
+  const isActive = activePath === href;
+
   return (
     <Link
       href={href}
-      className={`relative h-9 px-[15px] rounded-full flex items-center
-                  text-[13px] font-medium transition-all duration-200 whitespace-nowrap
-                  ${
-                    isGreen
-                      ? "bg-[#48a848] text-white font-semibold hover:bg-[#3a8a3a] hover:-translate-y-0.5"
-                      : isActive
-                        ? "bg-white/10 text-white"
-                        : "text-white/75 hover:text-white hover:bg-white/8"
-                  }`}>
-      {label}
+      className={`relative px-4 py-2 text-xs font-medium rounded-full transition-colors duration-200 z-10 flex items-center justify-center ${
+        isGreen
+          ? "text-[#5cbd5c] hover:text-white"
+          : isActive
+            ? "text-white font-semibold"
+            : "text-slate-300 hover:text-white"
+      }`}>
+      {/* Texte du bouton */}
+      <span className="relative z-20">{label}</span>
+
+      {/* Animation de surbrillance/contour actif */}
+      {isActive && (
+        <motion.div
+          layoutId="active-pill"
+          className="absolute inset-0 rounded-full border border-[#48a848] bg-[#48a848]/20 z-10"
+          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+        />
+      )}
     </Link>
   );
 }
-
 function SidebarMobile({ isOpen, onClose, darkMode, toggleDarkMode }) {
   return (
     <AnimatePresence>
@@ -230,9 +257,9 @@ function SidebarMobile({ isOpen, onClose, darkMode, toggleDarkMode }) {
                 <Image
                   src="/Logo_aletheia.png"
                   alt="Aletheia"
-                  width={120} // Augmenté pour garantir la netteté avec h-14
-                  height={120}
-                  className="w-auto h-14 brightness-125 object-contain"
+                  width={140}
+                  height={140}
+                  className="w-auto h-18 brightness-125 object-contain"
                 />
                 <span className="text-[#48a848] font-semibold text-lg tracking-wide select-none">
                   ALETHEIA
@@ -271,17 +298,14 @@ function SidebarMobile({ isOpen, onClose, darkMode, toggleDarkMode }) {
               <MobileLink href="/" label="Accueil" onClick={onClose} />
 
               <div className="py-1 border-b border-white/5 mb-1">
-                <NavApropos />
+                <NavApropos isMobile={true} onCloseMobile={onClose} />
               </div>
               <div className="py-1 border-b border-white/5 mb-1">
-                <NavSermon />
+                <NavSermon isMobile={true} onCloseMobile={onClose} />
               </div>
-
-              <MobileLink
-                href="/evenements"
-                label="Événements"
-                onClick={onClose}
-              />
+              <div className="py-1 border-b border-white/5 mb-1">
+                <NavRessources isMobile={true} onCloseMobile={onClose} />
+              </div>
               <MobileLink
                 href="/ministeres"
                 label="Ministères"

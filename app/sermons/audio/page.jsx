@@ -1,4 +1,4 @@
-import SermonsAudio from "@/src/component/ui/sermons/audio";
+import SermonsAudio from "@/src/component/ui/sermons/audio/index.jsx";
 
 export const metadata = {
   title: "Sermons Audio | Aletheia TRC",

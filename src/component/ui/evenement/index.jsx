@@ -1,320 +1,307 @@
 "use client";
-
-import { useState } from "react";
-import {
-  Calendar,
-  Clock,
-  MapPin,
-  ArrowRight,
-  Filter,
-  Users,
-  Video,
-  Sparkles,
-  Search,
-} from "lucide-react";
+import React, { useState } from "react";
+import { Calendar, Clock, MapPin, ArrowRight, Video, Sparkles, Filter, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
-// Liste des événements
-const EVENEMENTS = [
+// Agenda Annuel 2026
+const EVENEMENTS_ANNUELS = [
   {
     id: 1,
-    title: "Culte de Célébration & Adoration",
+    title: "Culte d'Action de Grâce de Nouvel An",
     category: "Cultes",
-    date: "Dimanche 10 Mai 2026",
-    time: "09h30 - 12h00",
+    month: 0, // Janvier
+    date: "Mercredi 1er Janvier 2026",
+    time: "09h00 - 11h30",
     location: "Sanctuaire Principal - TRC",
     isOnline: true,
-    featured: true,
-    description:
-      "Rejoignez-nous pour un moment intense de louange, d'adoration et d'enseignement biblique inspirant autour de la Parole de Dieu.",
-    image: "/Logo_aletheia.png", // Remplacez par votre image d'événement
-    tag: "Prochain Culte",
+    description: "Célébration spéciale pour rendre grâce à Dieu pour la nouvelle année 2026 et consacrer nos familles.",
+    image: "/Logo_aletheia.png",
   },
   {
     id: 2,
-    title: "Conférence Spéciale : Découvrir la Vérité",
-    category: "Conférences",
-    date: "Vendredi 15 Mai 2026",
-    time: "18h00 - 21h00",
-    location: "Grand Auditorium Aletheia",
-    isOnline: false,
-    featured: false,
-    description:
-      "Une soirée d'impact et de réflexion profonde sur la foi chrétienne dans le monde moderne.",
+    title: "21 Jours de Jeûne et Prière",
+    category: "Prière",
+    month: 0, // Janvier
+    date: "Du 5 au 25 Janvier 2026",
+    time: "18h00 - 19h30 chaque soir",
+    location: "Temple TRC & En Ligne",
+    isOnline: true,
+    description: "Une saison de consécration, de jeûne et de prière pour poser les fondements spirituels de l'année.",
     image: "/Logo_aletheia.png",
-    tag: "Spécial",
   },
   {
     id: 3,
-    title: "Soirée Jeunesse & Impact",
-    category: "Jeunesse",
-    date: "Samedi 23 Mai 2026",
-    time: "16h00 - 19h00",
-    location: "Salle des Fêtes TRC",
+    title: "Séminaire des Couples & Familles",
+    category: "Conférences",
+    month: 1, // Février
+    date: "Samedi 14 Février 2026",
+    time: "15h00 - 18h00",
+    location: "Salle d'Honneur Aletheia",
     isOnline: false,
-    featured: false,
-    description:
-      "Rencontre dynamique pour la jeunesse : partage, musique, ateliers pratiques et temps d'échange.",
+    description: "Un temps d'enseignement et d'échange pratique sur les fondements du mariage et de la famille chrétienne.",
     image: "/Logo_aletheia.png",
-    tag: "Jeunesse",
   },
   {
     id: 4,
-    title: "Étude Biblique approfondie : Épître aux Romains",
-    category: "Études Bibliques",
-    date: "Mercredi 27 Mai 2026",
-    time: "18h30 - 20h00",
-    location: "En ligne (Zoom & Live)",
+    title: "Grande Conférence Aletheia TRC",
+    category: "Conférences",
+    month: 2, // Mars
+    date: "Du 18 au 22 Mars 2026",
+    time: "17h00 - 20h00 chaque soir",
+    location: "Grand Auditorium TRC",
     isOnline: true,
-    featured: false,
-    description:
-      "Parcours explicatif et participatif versets par versets pour grandir dans la doctrine biblique.",
+    description: "Notre conférence annuelle avec des orateurs invités sous le thème de la Restauration Spirituelle par la Vérité.",
     image: "/Logo_aletheia.png",
-    tag: "Enseignement",
+  },
+  {
+    id: 5,
+    title: "Célébration de la Pâque (Résurrection)",
+    category: "Cultes",
+    month: 3, // Avril
+    date: "Dimanche 5 Avril 2026",
+    time: "09h00 - 12h00",
+    location: "Sanctuaire Principal - TRC",
+    isOnline: true,
+    description: "Célébration de la résurrection de notre Seigneur Jésus-Christ. Sainte Cène solennelle.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 6,
+    title: "Campagne d'Évangélisation et Impact Social",
+    category: "Social",
+    month: 4, // Mai
+    date: "Du 15 au 17 Mai 2026",
+    time: "Toute la journée",
+    location: "Bujumbura Mairie",
+    isOnline: false,
+    description: "Partage de l'Évangile dans les rues et distribution de dons alimentaires aux familles démunies.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 7,
+    title: "Soirée Jeunesse & Impact",
+    category: "Jeunesse",
+    month: 5, // Juin
+    date: "Samedi 20 Juin 2026",
+    time: "16h00 - 19h00",
+    location: "Salle des Fêtes TRC",
+    isOnline: false,
+    description: "Rencontre dynamique pour la jeunesse : louange vibrante, témoignages et partages d'idées.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 8,
+    title: "Retraite Spirituelle de l'Équipe Pastorale",
+    category: "Prière",
+    month: 6, // Juillet
+    date: "Du 10 au 12 Juillet 2026",
+    time: "Retraite résidentielle",
+    location: "Gitega",
+    isOnline: false,
+    description: "Retraite annuelle de ressourcement, de prière et de planification stratégique des ministères.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 9,
+    title: "Conférence d'Enseignement Doctrinal",
+    category: "Conférences",
+    month: 8, // Septembre
+    date: "Du 16 au 20 Septembre 2026",
+    time: "18h00 - 20h00",
+    location: "Auditorium Aletheia",
+    isOnline: true,
+    description: "Affermissement spirituel sur les doctrines fondamentales de la grâce divine.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 10,
+    title: "Nuit d'Adoration Passionnée",
+    category: "Cultes",
+    month: 9, // Octobre
+    date: "Vendredi 30 Octobre 2026",
+    time: "21h00 - 05h00",
+    location: "Sanctuaire Principal - TRC",
+    isOnline: true,
+    description: "Une nuit entière de prière, de louange et d'adoration dans la présence souveraine de Dieu.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 11,
+    title: "Célébration de la Nativité de Christ",
+    category: "Cultes",
+    month: 11, // Décembre
+    date: "Vendredi 25 Décembre 2026",
+    time: "09h00 - 11h30",
+    location: "Sanctuaire Principal - TRC",
+    isOnline: true,
+    description: "Culte solennel célébrant l'incarnation de la Parole de Dieu en Jésus-Christ.",
+    image: "/Logo_aletheia.png",
+  },
+  {
+    id: 12,
+    title: "Veillée d'Entrée dans la Nouvelle Année (Cross-Over)",
+    category: "Prière",
+    month: 11, // Décembre
+    date: "Jeudi 31 Décembre 2026",
+    time: "21h00 - 01h00",
+    location: "Grand Auditorium TRC",
+    isOnline: true,
+    description: "Veillée solennelle de transition spirituelle pour accueillir la nouvelle année dans la prière.",
+    image: "/Logo_aletheia.png",
   },
 ];
 
-const CATEGORIES = [
-  "Tous",
-  "Cultes",
-  "Conférences",
-  "Jeunesse",
-  "Études Bibliques",
+const MOIS = [
+  "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+  "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
 ];
 
 export default function PageEvenements() {
-  const [selectedCategory, setSelectedCategory] = useState("Tous");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [activeMonthIdx, setActiveMonthIdx] = useState(new Date().getMonth());
+  const [selectedCat, setSelectedCat] = useState("Tous");
 
-  // Filtrage des événements
-  const filteredEvents = EVENEMENTS.filter((event) => {
-    const matchesCategory =
-      selectedCategory === "Tous" || event.category === selectedCategory;
-    const matchesSearch =
-      event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      event.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+  const handlePrevMonth = () => {
+    setActiveMonthIdx((prev) => (prev === 0 ? 11 : prev - 1));
+  };
+
+  const handleNextMonth = () => {
+    setActiveMonthIdx((prev) => (prev === 11 ? 0 : prev + 1));
+  };
+
+  // Filtrer les événements par mois actif et catégorie
+  const filteredEvents = EVENEMENTS_ANNUELS.filter((event) => {
+    const matchesMonth = event.month === activeMonthIdx;
+    const matchesCat = selectedCat === "Tous" || event.category === selectedCat;
+    return matchesMonth && matchesCat;
   });
 
-  const featuredEvent = EVENEMENTS.find((e) => e.featured) || EVENEMENTS[0];
+  const categories = ["Tous", "Cultes", "Conférences", "Prière", "Social", "Jeunesse"];
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen pb-20">
-      {/* ── 1. HERO BANNER ────────────────────────────────────────────── */}
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-300">
+      
+      {/* 1. HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] [background-size:20px_20px]" />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
-            <Sparkles className="w-3.5 h-3.5" /> Agenda & Rassemblements
+            <Sparkles className="w-3.5 h-3.5" /> Agenda de l'Église 2026
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
-            Nos Événements
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            Calendrier Annuel
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Venez partager des moments forts de communion, de prière,
-            d'apprentissage et de célébration.
+          <p className="text-lg md:text-xl text-slate-350 max-w-2xl mx-auto leading-relaxed">
+            Consultez toutes les activités, cultes, séminaires et événements planifiés pour toute l'année.
           </p>
         </div>
       </section>
 
+      {/* 2. CALENDAR MONTH SLIDER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-        {/* ── 2. ÉVÉNEMENT EN VEDETTE (FEATURED) ─────────────────────── */}
-        {featuredEvent && (
-          <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800 mb-12">
-            <div className="flex items-center gap-2 text-[#48a848] font-bold text-xs uppercase tracking-widest mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#48a848] animate-ping" />
-              Événements à ne pas manquer
-            </div>
+        <div className="bg-[#0c2448] text-white rounded-3xl p-6 shadow-xl border border-white/5 flex items-center justify-between gap-4 max-w-2xl mx-auto mb-10">
+          <button
+            onClick={handlePrevMonth}
+            className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors outline-none">
+            <ChevronLeft size={20} />
+          </button>
+          <div className="text-center">
+            <h2 className="text-xl md:text-2xl font-extrabold tracking-wide uppercase text-green-400">
+              {MOIS[activeMonthIdx]} 2026
+            </h2>
+            <p className="text-[10px] text-white/50 uppercase mt-0.5">Naviguez pour voir toute l'année</p>
+          </div>
+          <button
+            onClick={handleNextMonth}
+            className="p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors outline-none">
+            <ChevronRight size={20} />
+          </button>
+        </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-4">
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#0c2448]/10 dark:bg-slate-800 text-[#0c2448] dark:text-slate-200">
-                  {featuredEvent.category}
-                </span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0c2448] dark:text-white leading-tight">
-                  {featuredEvent.title}
-                </h2>
-                <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                  {featuredEvent.description}
-                </p>
+        {/* 3. CATEGORIES FILTERS */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 border-b border-slate-200 dark:border-slate-800 scrollbar-none">
+          <Filter className="w-4 h-4 text-slate-400 flex-shrink-0" />
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCat(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap outline-none ${
+                selectedCat === cat
+                  ? "bg-[#0c2448] text-white shadow-sm"
+                  : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
+              }`}>
+              {cat}
+            </button>
+          ))}
+        </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm text-slate-700 dark:text-slate-300">
-                  <div className="flex items-center gap-2.5">
-                    <Calendar className="w-4 h-4 text-[#48a848]" />
-                    <span>{featuredEvent.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Clock className="w-4 h-4 text-[#48a848]" />
-                    <span>{featuredEvent.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 sm:col-span-2">
-                    <MapPin className="w-4 h-4 text-[#48a848]" />
-                    <span>{featuredEvent.location}</span>
-                    {featuredEvent.isOnline && (
-                      <span className="ml-2 inline-flex items-center gap-1 text-xs bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-md">
+        {/* 4. EVENTS CONTAINER */}
+        <div className="space-y-6">
+          {filteredEvents.length > 0 ? (
+            filteredEvents.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                {/* Event info (7 Cols) */}
+                <div className="lg:col-span-8 space-y-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-[#0c2448]/10 dark:bg-slate-800 text-[#0c2448] dark:text-slate-200 uppercase">
+                      {item.category}
+                    </span>
+                    {item.isOnline && (
+                      <span className="inline-flex items-center gap-1 text-[10px] bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-450 px-2 py-0.5 rounded-md font-bold">
                         <Video className="w-3 h-3" /> En Direct
                       </span>
                     )}
                   </div>
-                </div>
 
-                <div className="pt-4 flex flex-wrap items-center gap-4">
-                  <Link
-                    href={`/evenements/${featuredEvent.id}`}
-                    className="inline-flex items-center gap-2 bg-[#48a848] hover:bg-[#3d913d] text-white font-medium px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg">
-                    S'inscrire / En savoir plus
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#0c2448] dark:text-white leading-tight">
+                    {item.title}
+                  </h2>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    {item.description}
+                  </p>
 
-              <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center p-6">
-                <Image
-                  src={featuredEvent.image}
-                  alt={featuredEvent.title}
-                  width={240}
-                  height={240}
-                  className="object-contain hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── 3. BARRE DE RECHERCHE ET FILTRES ───────────────────────── */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
-          {/* Filtres par boutons */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-            <Filter className="w-4 h-4 text-slate-400 flex-shrink-0 mr-1 hidden sm:block" />
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap outline-none ${
-                  selectedCategory === cat
-                    ? "bg-[#0c2448] text-white shadow-sm"
-                    : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
-                }`}>
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Recherche */}
-          <div className="relative w-full md:w-72">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Rechercher un événement..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#48a848] transition-all"
-            />
-          </div>
-        </div>
-
-        {/* ── 4. GRILLE DE TOUS LES ÉVÉNEMENTS ───────────────────────── */}
-        {filteredEvents.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredEvents.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                  {/* Visuel Top */}
-                  <div className="relative h-48 bg-slate-100 dark:bg-slate-800 p-4 flex items-center justify-center">
-                    <span className="absolute top-3 left-3 bg-[#0c2448] text-white text-[11px] font-semibold px-2.5 py-1 rounded-md shadow-sm">
-                      {item.category}
-                    </span>
-                    {item.isOnline && (
-                      <span className="absolute top-3 right-3 bg-emerald-500 text-white text-[11px] font-medium px-2.5 py-1 rounded-md shadow-sm flex items-center gap-1">
-                        <Video className="w-3 h-3" /> Live
-                      </span>
-                    )}
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={120}
-                      height={120}
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Contenu */}
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-[#0c2448] dark:text-white mb-2 line-clamp-1 group-hover:text-[#48a848] transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm line-clamp-2 mb-4 leading-relaxed">
-                      {item.description}
-                    </p>
-
-                    <div className="space-y-2 text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-3.5 h-3.5 text-[#48a848]" />
-                        <span>{item.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-3.5 h-3.5 text-[#48a848]" />
-                        <span>{item.time}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 text-[#48a848]" />
-                        <span className="truncate">{item.location}</span>
-                      </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-500 dark:text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-[#48a848] flex-shrink-0" />
+                      <span>{item.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-[#48a848] flex-shrink-0" />
+                      <span>{item.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-[#48a848] flex-shrink-0" />
+                      <span className="truncate">{item.location}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Footer Carte */}
-                <div className="px-6 pb-6 pt-0">
-                  <Link
-                    href={`/evenements/${item.id}`}
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-[#0c2448] hover:text-white dark:hover:bg-[#48a848] text-xs font-semibold transition-all">
-                    Détails & Inscription
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                {/* Event image/brand (4 Cols) */}
+                <div className="lg:col-span-4 relative h-48 rounded-2xl overflow-hidden bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 flex items-center justify-center p-6">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={110}
+                    height={110}
+                    className="object-contain hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
-            <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300">
-              Aucun événement trouvé
-            </h3>
-            <p className="text-sm text-slate-500 mt-1">
-              Essayez de modifier votre recherche ou sélectionnez une autre
-              catégorie.
-            </p>
-          </div>
-        )}
-
-        {/* ── 5. APPEL À L'ACTION / RESTEZ INFORMÉS ───────────────────── */}
-        <section className="mt-16 bg-gradient-to-r from-[#0c2448] to-[#173868] text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl">
-          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-bold">
-              Ne manquez aucun de nos prochains événements !
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
-              Abonnez-vous à notre communauté pour recevoir directement les
-              annonces et invitations.
-            </p>
-            <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Votre adresse email..."
-                className="px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#48a848] flex-1"
-              />
-              <button className="bg-[#48a848] hover:bg-[#3d913d] text-white font-medium px-6 py-3 rounded-xl text-sm transition-all shadow-md">
-                S'inscrire
-              </button>
+            ))
+          ) : (
+            <div className="text-center py-20 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800">
+              <Calendar className="w-14 h-14 text-slate-300 mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-slate-700 dark:text-slate-350">
+                Aucun événement prévu en {MOIS[activeMonthIdx]} 2026
+              </h3>
+              <p className="text-xs text-slate-450 mt-1.5">
+                Consultez les mois précédents ou suivants pour découvrir l'agenda de l'église.
+              </p>
             </div>
-          </div>
-        </section>
+          )}
+        </div>
       </div>
     </div>
   );

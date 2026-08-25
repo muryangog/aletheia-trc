@@ -1,4 +1,4 @@
-import EquipePastorale from "@/src/component/ui/Apropos/equipe-pastorale";
+import EquipePastorale from "@/src/component/ui/Apropos/equipe-pastorale/index.jsx";
 
 export const metadata = {
   title: "L'Équipe Pastorale | Aletheia TRC",

@@ -1,4 +1,4 @@
-import SermonsLive from "@/src/component/ui/sermons/live";
+import SermonsLive from "@/src/component/ui/sermons/live/index.jsx";
 
 export const metadata = {
   title: "Culte en Direct (Live) | Aletheia TRC",

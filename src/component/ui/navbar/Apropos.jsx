@@ -60,6 +60,23 @@ const apropos = [
     ),
   },
   {
+    name: "Galerie Photos",
+    sub: "Les moments des cultes",
+    href: "/galerie",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className="w-4 h-4">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
+      </svg>
+    ),
+  },
+  {
     name: "Nous Contacter",
     sub: "On vous répond vite",
     href: "/contact",
@@ -169,38 +186,38 @@ export default function NavApropos({ isMobile = false, onCloseMobile }) {
             exit={{ opacity: 0, y: 8, scale: 0.97 }}
             transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
             className="absolute top-[calc(100%+10px)] left-0 z-[60]
-                       bg-white rounded-[14px] p-1.5 min-w-[230px]
-                       border border-[#0c2448]/7
+                       bg-white dark:bg-[#0c2448] rounded-[14px] p-1.5 min-w-[230px]
+                       border border-[#0c2448]/7 dark:border-white/10
                        shadow-[0_16px_40px_rgba(12,36,72,0.2),0_2px_8px_rgba(12,36,72,0.1)]">
             <div
-              className="absolute -top-[5px] left-6 w-2.5 h-2.5 bg-white rotate-45
-                            border-t border-l border-[#0c2448]/7"
+              className="absolute -top-[5px] left-6 w-2.5 h-2.5 bg-white dark:bg-[#0c2448] rotate-45
+                            border-t border-l border-[#0c2448]/7 dark:border-white/10"
             />
 
             {apropos.map((item) => (
               <div key={item.name}>
                 {item.separator && (
-                  <div className="h-px bg-[#0c2448]/6 mx-1.5 my-1" />
+                  <div className="h-px bg-[#0c2448]/6 dark:bg-white/10 mx-1.5 my-1" />
                 )}
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-2.5 p-2.5 rounded-[9px]
-                             group transition-colors hover:bg-[#f5f7fa]">
+                             group transition-colors hover:bg-[#f5f7fa] dark:hover:bg-white/5">
                   <div
-                    className="w-8 h-8 rounded-lg bg-[#f5f7fa] border border-[#0c2448]/8
+                    className="w-8 h-8 rounded-lg bg-[#f5f7fa] dark:bg-slate-950/45 border border-[#0c2448]/8 dark:border-white/5
                                   flex items-center justify-center flex-shrink-0
                                   transition-all group-hover:bg-[#48a848] group-hover:border-[#48a848]">
-                    <span className="text-[#0c2448] group-hover:text-white transition-colors">
+                    <span className="text-[#0c2448] dark:text-slate-200 group-hover:text-white transition-colors">
                       {item.icon}
                     </span>
                   </div>
                   <div>
-                    <div className="text-[12.5px] font-medium text-[#0c2448] leading-none">
+                    <div className="text-[12.5px] font-medium text-[#0c2448] dark:text-white leading-none">
                       {item.name}
                     </div>
                     {item.sub && (
-                      <div className="text-[11px] text-[#6b7a8d] mt-[3px]">
+                      <div className="text-[11px] text-[#6b7a8d] dark:text-white/50 mt-[3px]">
                         {item.sub}
                       </div>
                     )}

@@ -1,4 +1,4 @@
-import SermonsPodcasts from "@/src/component/ui/sermons/podcasts";
+import SermonsPodcasts from "@/src/component/ui/sermons/podcasts/index.jsx";
 
 export const metadata = {
   title: "Podcasts chrétiens | Aletheia TRC",

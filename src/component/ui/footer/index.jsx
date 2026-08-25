@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import ContactInfo from "./Adresse&Whatsapp";
 
 // ── Couleurs Aletheia ──────────────────────────────────────────────────────
-// Bleu marine : #0c2448  |  Vert : #48a848
+// Bleu marine principal : #0c2448 | Vert signature : #48a848
 
 const currentYear = new Date().getFullYear();
 
@@ -10,8 +11,11 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos/vision", label: "Vision" },
   { href: "/a-propos/equipe", label: "Équipe" },
-  { href: "/sermons/videos", label: "Sermons" },
-  { href: "/evenements", label: "Événements" },
+  { href: "/sermons/audio", label: "Audios" },
+  { href: "/sermons/radio", label: "Radio Aletheia" },
+  { href: "/ressources/evenements", label: "Événements" },
+  { href: "/ressources/devotion", label: "Dévotion" },
+  { href: "/ressources/nouveaux-convertis", label: "Nouveaux Convertis" },
   { href: "/ministeres", label: "Ministères" },
   { href: "/contact", label: "Nous contacter" },
 ];
@@ -28,7 +32,7 @@ const socials = [
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/truthrevealedaletheia",
+    href: "https://www.facebook.com/search/top/?q=aletheia%20truth%20revealed",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -55,7 +59,7 @@ const socials = [
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/@aletheiatruthrevealedchurc4758",
+    href: "https://www.youtube.com/results?search_query=aletheia+truth+revealed+church",
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
         <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -66,20 +70,32 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0c2448] dark:bg-slate-950 text-slate-300 transition-colors duration-300">
-      <div className="max-w-[1100px] mx-auto px-6 sm:px-8">
-        {/* ── TOP : Marque + Réseaux ── */}
-        <div className="flex flex-col items-center gap-5 py-12 border-b border-white/8">
-          <div className="flex flex-col items-center gap-1.5">
-            <span className="text-[26px] font-medium tracking-[0.06em] text-white">
-              ALETHE<span className="text-[#48a848]">IA</span>
-            </span>
-            <span className="text-[11px] tracking-[0.2em] uppercase text-white/30">
-              Truth Revealed · Gitega, Burundi
-            </span>
+    <footer className="w-full bg-[#0c2448] dark:bg-[#071324] text-slate-300 transition-colors duration-300 relative overflow-hidden">
+      {/* Ligne décorative supérieure */}
+      <div className="h-[3px] bg-gradient-to-r from-transparent via-[#48a848]/60 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* ── TOP : Logo / Marque + Réseaux ── */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 border-b border-white/10 text-center sm:text-left">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/Logo_aletheia.png"
+              alt="Logo Aletheia"
+              width={110}
+              height={110}
+              className="w-auto h-[55px] brightness-110 object-contain"
+            />
+            <div className="flex flex-col items-start text-left gap-0.5">
+              <span className="text-lg font-bold tracking-wider text-white">
+                ALETHE<span className="text-[#48a848]">IA</span>
+              </span>
+              <span className="text-[9px] tracking-[0.18em] uppercase text-white/45">
+                Truth Revealed Church · Kinindo
+              </span>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-end">
             {socials.map((s) => (
               <a
                 key={s.label}
@@ -87,67 +103,101 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={s.label}
-                className="w-9 h-9 rounded-full border border-white/12 bg-white/4
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 bg-white/5
                            flex items-center justify-center
-                           text-white/55 hover:bg-[#48a848] hover:border-[#48a848]
-                           hover:text-white hover:-translate-y-0.5 transition-all duration-200">
+                           text-white/70 hover:bg-[#48a848] hover:border-[#48a848]
+                           hover:text-white hover:-translate-y-0.5 transition-all duration-200 shadow-sm flex-shrink-0">
                 {s.icon}
               </a>
             ))}
           </div>
         </div>
 
-        {/* ── MIDDLE : Nav + Contact ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-10 py-10 border-b border-white/8">
-          {/* Navigation pills */}
-          <div>
-            <p className="text-[10px] tracking-[0.18em] uppercase text-white/30 mb-4 font-medium">
-              Navigation
+        {/* ── MIDDLE : Rubriques empilées & centrées ── */}
+        <div className="flex flex-col py-8 divide-y divide-white/10 border-b border-white/10">
+          {/* 1. Navigation Rapide (Centrée) */}
+          <div className="pb-8 flex flex-col items-center text-center">
+            <p className="text-[11px] tracking-[0.18em] uppercase text-[#5cbd5c] mb-4 font-semibold">
+              Navigation Rapide
             </p>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap justify-center gap-2">
               {navLinks.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="px-3.5 py-1.5 rounded-full text-[13px]
-                             text-white/60 border border-white/7 bg-white/3
-                             hover:bg-[#48a848]/12 hover:border-[#48a848]/30 hover:text-[#5cbd5c]
+                  className="px-3.5 py-1.5 rounded-full text-[12.5px] font-medium
+                             text-slate-300 border border-white/10 bg-white/5
+                             hover:bg-[#48a848]/20 hover:border-[#48a848]/50 hover:text-white
                              transition-all duration-200 whitespace-nowrap">
                   {l.label}
                 </Link>
               ))}
-              {/* Faire un don — mis en valeur */}
               <Link
                 href="/don"
-                className="px-3.5 py-1.5 rounded-full text-[13px] font-medium
-                           bg-[#48a848] border border-[#48a848] text-white
-                           hover:bg-[#3a8a3a] hover:border-[#3a8a3a]
+                className="px-4 py-1.5 rounded-full text-[12.5px] font-semibold
+                           bg-[#48a848] hover:bg-[#3a8a3a] text-white shadow-sm
                            transition-all duration-200 whitespace-nowrap">
                 Faire un don
               </Link>
             </div>
           </div>
 
-          {/* Infos contact */}
-          <div>
-            <p className="text-[10px] tracking-[0.18em] uppercase text-white/30 mb-4 font-medium">
-              Contact
+          {/* 2. Programme des Cultes (Centré) */}
+          <div className="py-8 flex flex-col items-center text-center">
+            <p className="text-[11px] tracking-[0.18em] uppercase text-[#5cbd5c] mb-4 font-semibold">
+              Programme des Cultes
             </p>
-            <div className="flex flex-col gap-2.5">
-              <ContactRow icon={<MapPin />} label="Gitega, Burundi" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-xl">
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/8 flex items-center justify-center gap-3 text-left">
+                <div className="w-8 h-8 rounded-xl bg-[#48a848]/15 border border-[#48a848]/30 flex items-center justify-center text-[#5cbd5c] flex-shrink-0">
+                  <Clock size={16} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-semibold text-white">Mercredi</h4>
+                  <p className="text-[12px] text-slate-300">17h30 – 19h30</p>
+                  <span className="text-[10px] text-[#5cbd5c] font-medium">
+                    Culte de Louange
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/8 flex items-center justify-center gap-3 text-left">
+                <div className="w-8 h-8 rounded-xl bg-[#48a848]/15 border border-[#48a848]/30 flex items-center justify-center text-[#5cbd5c] flex-shrink-0">
+                  <Clock size={16} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-semibold text-white">Dimanche</h4>
+                  <p className="text-[12px] text-slate-300">09h00 – 12h30</p>
+                  <span className="text-[10px] text-[#5cbd5c] font-medium">
+                    Culte Dominical
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Nous Trouver (Centré) */}
+          <div className="pt-8 flex flex-col items-center text-center">
+            <p className="text-[11px] tracking-[0.18em] uppercase text-[#5cbd5c] mb-4 font-semibold">
+              Nous Trouver
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* <ContactRow
+                icon={<MapPin />}
+                label="Kinindo, Bujumbura, Burundi"
+              /> */}
               <ContactInfo />
-              <ContactRow icon={<Clock />} label="Dimanche 9h & 11h" />
             </div>
           </div>
         </div>
 
         {/* ── BOTTOM : Copyright ── */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 py-5">
-          <p className="text-[12px] text-white/25">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-xs text-white/40 text-center sm:text-left">
+          <p>
             Copyright © {currentYear} · Tous droits réservés par{" "}
-            <span className="text-[#48a848] font-medium">GaelDev</span>
+            <span className="text-[#5cbd5c] font-medium">MuryangoDev</span>
           </p>
-          <p className="text-[10px] tracking-[0.18em] uppercase text-white/20">
+          <p className="tracking-widest uppercase text-[10px]">
             Aletheia Truth Revealed Church
           </p>
         </div>
@@ -156,30 +206,35 @@ export default function Footer() {
   );
 }
 
-// ── Icônes inline légères ─────────────────────────────────────────────────
+// ── Composants d'icônes & helpers ─────────────────────────────────
 function MapPin() {
   return (
     <svg
-      width="14"
-      height="14"
+      width="15"
+      height="15"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2">
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
   );
 }
-function Clock() {
+
+function Clock({ size = 15 }) {
   return (
     <svg
-      width="14"
-      height="14"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2">
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <polyline points="12 6 12 12 16 14" />
     </svg>
@@ -188,13 +243,11 @@ function Clock() {
 
 function ContactRow({ icon, label }) {
   return (
-    <div className="flex items-center gap-2.5 text-[13px] text-white/55">
-      <div
-        className="w-7 h-7 rounded-lg bg-[#48a848]/12 border border-[#48a848]/20
-                      flex items-center justify-center flex-shrink-0 text-[#48a848]">
+    <div className="flex items-center gap-3 text-xs text-slate-300">
+      <div className="w-8 h-8 rounded-xl bg-[#48a848]/15 border border-[#48a848]/30 flex items-center justify-center text-[#5cbd5c] flex-shrink-0">
         {icon}
       </div>
-      {label}
+      <span>{label}</span>
     </div>
   );
 }
