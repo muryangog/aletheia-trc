@@ -24,8 +24,17 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const { isSignedIn } = useAuth();
-  const { user, isLoaded } = useUser();
+  let clerkAvailable = true;
+  let isSignedIn = false;
+  let user = null;
+  let isLoaded = false;
+
+  try {
+    ({ isSignedIn } = useAuth());
+    ({ user, isLoaded } = useUser());
+  } catch {
+    clerkAvailable = false;
+  }
 
   return (
     <>
@@ -98,7 +107,16 @@ export default function Navbar() {
 
               <div className="w-px h-5 bg-[#d5dde7] dark:bg-[#294466]" />
 
-              {!isSignedIn ? (
+              {!clerkAvailable ? (
+                <>
+                  <button className="h-9.5 px-5 rounded-lg border border-[#b7c4d3] dark:border-[#294466] text-[12.5px] font-medium text-[#0c2448] dark:text-white hover:bg-[#0c2448] hover:text-white hover:border-[#0c2448] transition-colors duration-150">
+                    Connexion
+                  </button>
+                  <button className="h-9.5 px-5 rounded-lg bg-[#48a848] hover:bg-[#3a8a3a] text-[12.5px] font-semibold text-white transition-colors duration-150 shadow-sm">
+                    S'inscrire
+                  </button>
+                </>
+              ) : !isSignedIn ? (
                 <>
                   <SignInButton mode="modal">
                     <button className="h-9.5 px-5 rounded-lg border border-[#b7c4d3] dark:border-[#294466] text-[12.5px] font-medium text-[#0c2448] dark:text-white hover:bg-[#0c2448] hover:text-white hover:border-[#0c2448] transition-colors duration-150">
