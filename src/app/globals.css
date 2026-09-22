@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --color-background: #f8fafc;
+  --color-background-muted: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-foreground-muted: #64748b;
+  --color-foreground-subtle: #94a3b8;
+  --color-heading: #0c2448;
+  --color-border: #e2e8f0;
+  --color-brand-blue: #0c2448;
+  --color-brand-green: #48a848;
+  --color-brand-green-bright: #5cbd5c;
+  --color-link: #287a3d;
+  --color-link-hover: #1f6130;
+  --color-success: #15803d;
+  --color-error: #dc2626;
+  --font-body: "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-background: #020617;
+  --color-background-muted: #0f172a;
+  --color-surface: #0f172a;
+  --color-surface-muted: #1e293b;
+  --color-foreground: #f8fafc;
+  --color-foreground-muted: #94a3b8;
+  --color-foreground-subtle: #64748b;
+  --color-heading: #f8fafc;
+  --color-border: #334155;
+  --color-brand-blue: #0a1a30;
+  --color-brand-green: #48a848;
+  --color-brand-green-bright: #6dcc6d;
+  --color-link: #6dcc6d;
+  --color-link-hover: #8be38b;
+  --color-success: #4ade80;
+  --color-error: #f87171;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-size: 1rem;
+    line-height: 1.6;
+    transition:
+      background-color 300ms ease,
+      color 300ms ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+
+  a {
+    color: var(--color-link);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  ::selection {
+    background-color: color-mix(
+      in srgb,
+      var(--color-brand-green) 30%,
+      transparent
+    );
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .type-page-title {
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  .type-section-title {
+    color: var(--color-heading);
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  .type-subsection-title {
+    color: var(--color-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+
+  .type-body {
+    color: var(--color-foreground);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .type-small {
+    color: var(--color-foreground-muted);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .type-caption {
+    color: var(--color-foreground-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+  }
+
+  .type-button {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .type-nav {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+}
+
+/* Masquage de l'indicateur "Development mode" de Clerk en local */
+.cl-development-mode-badge,
+[data-localization-key*="developmentMode"],
+.cl-devMode,
+div:has(> [data-localization-key="badge__developmentMode"]) {
+  display: none !important;
+}

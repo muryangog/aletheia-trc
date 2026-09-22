@@ -1,0 +1,8 @@
+{
+  "appId": "bi.aletheiatrc.app",
+  "appName": "Aletheia TRC",
+  "webDir": "out",
+  "server": {
+    "androidScheme": "https"
+  }
+}
