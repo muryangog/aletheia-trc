@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Search, Menu, Clock } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   SignInButton,
   SignUpButton,
@@ -22,7 +22,18 @@ import ThemeToggle from "@/components/ui/ThemeToggle/ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
+  const router = useRouter();
+
+  function handleSearch(event) {
+    event.preventDefault();
+    const query = searchQuery.trim();
+
+    if (query) {
+      router.push(`/recherche?q=${encodeURIComponent(query)}`);
+    }
+  }
 
   let clerkAvailable = true;
   let isSignedIn = false;
@@ -90,17 +101,24 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="w-full max-w-sm relative hidden lg:block">
+            <form
+              onSubmit={handleSearch}
+              className="w-full max-w-sm relative hidden lg:block">
               <input
                 type="search"
                 placeholder="Rechercher un sermon, un événement..."
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                aria-label="Rechercher un sermon ou un événement"
                 className="w-full pl-9 pr-4 h-9.5 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-[#48a848] focus:ring-2 focus:ring-[#48a848]/20 outline-none transition-colors duration-200"
               />
-              <Search
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"
-                size={14}
-              />
-            </div>
+              <button
+                type="submit"
+                aria-label="Lancer la recherche"
+                className="absolute left-0 top-0 h-full w-9 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#48a848] transition-colors">
+                <Search size={14} />
+              </button>
+            </form>
 
             <div className="hidden sm:flex items-center gap-2.5 shrink-0">
               <ThemeToggle className="w-9.5 h-9.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-[#48a848] flex items-center justify-center transition-colors duration-200" />
