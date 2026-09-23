@@ -90,10 +90,10 @@ export default function RadioPlayer() {
       {/* 1. HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-16 lg:py-20 overflow-hidden border-b border-[#48a848]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Aletheia Media Center
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 flex items-center justify-center gap-3">
+          <h1 className="text-white text-4xl md:text-5xl font-extrabold tracking-tight mb-4 flex items-center justify-center gap-3">
             <Radio className="w-8 h-8 text-[#48a848] animate-pulse" />
             Aletheia Radio
           </h1>
@@ -107,7 +107,7 @@ export default function RadioPlayer() {
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-[#0c2448] border border-[#294466] p-8 rounded-xl shadow-lg flex flex-col justify-between aspect-video md:aspect-21/9 lg:aspect-auto min-h-87.5">
+            <div className="bg-[#0c2448] border border-[#294466] p-8 rounded-2xl shadow-lg flex flex-col justify-between aspect-video md:aspect-21/9 lg:aspect-auto min-h-87.5">
               <div className="flex items-center justify-between border-b border-[#294466] pb-4">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
@@ -228,7 +228,7 @@ export default function RadioPlayer() {
             </div>
 
             {/* Liste des enseignements de la Radio */}
-            <div className="bg-slate-900/50 border border-white/5 p-6 rounded-[2rem] space-y-4">
+            <div className="bg-slate-900/50 border border-white/5 p-6 rounded-2xl space-y-4">
               <h3 className="text-md font-bold text-white flex items-center gap-2">
                 <ListMusic size={16} className="text-[#48a848]" />
                 Enseignements disponibles à l'écoute
@@ -246,7 +246,7 @@ export default function RadioPlayer() {
                           : "hover:bg-white/5 text-slate-300 hover:text-white"
                       }`}>
                       <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-lg bg-slate-800 border border-white/5 flex items-center justify-center text-xs">
+                        <div className="w-7 h-7 rounded-xl bg-slate-800 border border-white/5 flex items-center justify-center text-xs">
                           {isActive && isPlaying ? (
                             <span className="w-1.5 h-1.5 bg-[#48a848] rounded-full animate-ping" />
                           ) : (
@@ -274,7 +274,7 @@ export default function RadioPlayer() {
 
           {/* Projets de Station */}
           <div className="space-y-6">
-            <div className="bg-slate-900/80 border border-white/5 p-6 rounded-[2rem] space-y-6">
+            <div className="bg-slate-900/80 border border-white/5 p-6 rounded-2xl space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-white mb-1">
                   Nos Projets Radio

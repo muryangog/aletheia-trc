@@ -39,7 +39,7 @@ function ContactRow({ href, icon, label, external = false }) {
       className="type-nav flex items-center gap-2.5 text-white/55
                  hover:text-[#5cbd5c] transition-all duration-200 group">
       <div
-        className="w-7 h-7 rounded-lg bg-[#48a848]/12 border border-[#48a848]/20
+        className="w-7 h-7 rounded-xl bg-[#48a848]/12 border border-[#48a848]/20
                       flex items-center justify-center shrink-0
                       text-[#48a848] group-hover:bg-[#48a848] group-hover:border-[#48a848]
                       group-hover:text-white transition-all duration-200">

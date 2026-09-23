@@ -24,7 +24,7 @@ export default function Lightbox({ photo, onClose, onPrev, onNext }) {
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 p-2 bg-[#12305a] hover:bg-[#294466] rounded-lg text-white transition-colors duration-150 outline-none z-60 cursor-pointer"
+        className="absolute top-6 right-6 p-2 bg-[#12305a] hover:bg-[#294466] rounded-xl text-white transition-colors duration-200 outline-none z-60 cursor-pointer"
         aria-label="Fermer la galerie">
         <X size={24} />
       </button>
@@ -35,7 +35,7 @@ export default function Lightbox({ photo, onClose, onPrev, onNext }) {
           e.stopPropagation();
           onPrev();
         }}
-        className="absolute left-4 p-3 bg-[#12305a] hover:bg-[#294466] rounded-lg text-white transition-colors duration-150 outline-none z-60 cursor-pointer"
+        className="absolute left-4 p-3 bg-[#12305a] hover:bg-[#294466] rounded-xl text-white transition-colors duration-200 outline-none z-60 cursor-pointer"
         aria-label="Précédente">
         <ChevronLeft size={24} />
       </button>
@@ -57,7 +57,7 @@ export default function Lightbox({ photo, onClose, onPrev, onNext }) {
           e.stopPropagation();
           onNext();
         }}
-        className="absolute right-4 p-3 bg-[#12305a] hover:bg-[#294466] rounded-lg text-white transition-colors duration-150 outline-none z-60 cursor-pointer"
+        className="absolute right-4 p-3 bg-[#12305a] hover:bg-[#294466] rounded-xl text-white transition-colors duration-200 outline-none z-60 cursor-pointer"
         aria-label="Suivante">
         <ChevronRight size={24} />
       </button>
@@ -66,7 +66,7 @@ export default function Lightbox({ photo, onClose, onPrev, onNext }) {
       <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-white space-y-1"
         onClick={(e) => e.stopPropagation()}>
-        <span className="text-[10px] font-bold text-[#48a848] uppercase tracking-widest bg-[#48a848]/10 px-3 py-1 rounded-full border border-[#48a848]/20">
+        <span className="text-[10px] font-bold text-[#48a848] uppercase tracking-widest bg-[#48a848]/10 px-3 py-1 rounded-xl border border-[#48a848]/20">
           {photo.category}
         </span>
         <h4 className="font-bold text-lg mt-2">{photo.title}</h4>

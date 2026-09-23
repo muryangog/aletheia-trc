@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkAppProvider>
       <html lang="fr" suppressHydrationWarning>
-        <body className="min-h-screen flex flex-col">
+        <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
           <ThemeProvider>
             <Header />
             <main className="flex-1">{children}</main>

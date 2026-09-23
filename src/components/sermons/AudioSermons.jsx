@@ -40,12 +40,12 @@ export default function AudioSermons() {
   };
 
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen pb-20 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-200">
       {/* 1. HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Messages & Prédications
           </span>
           <h1 className="type-page-title text-white mb-4">Sermons Audio</h1>
@@ -66,7 +66,7 @@ export default function AudioSermons() {
               <button
                 key={preacher}
                 onClick={() => setSelectedPreacher(preacher)}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap outline-none ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors duration-200 whitespace-nowrap outline-none ${
                   selectedPreacher === preacher
                     ? "bg-[#0c2448] text-white shadow-sm"
                     : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
@@ -84,7 +84,7 @@ export default function AudioSermons() {
               placeholder="Rechercher par titre ou série..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-slate-800 dark:text-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-200"
             />
           </div>
         </div>
@@ -97,18 +97,18 @@ export default function AudioSermons() {
               return (
                 <div
                   key={sermon.id}
-                  className={`bg-white dark:bg-slate-900 rounded-3xl p-6 border transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-lg ${
+                  className={`bg-white dark:bg-slate-900 rounded-2xl p-6 border transition-all duration-200 flex flex-col justify-between shadow-sm hover:shadow-md ${
                     isCurrent
-                      ? "border-[#48a848] dark:border-[#48a848] bg-slate-50/50 dark:bg-slate-800"
-                      : "border-slate-200/80 dark:border-slate-800"
+                      ? "border-[#48a848] dark:border-[#48a848] bg-slate-50/50 dark:bg-slate-850"
+                      : "border-slate-200 dark:border-slate-800"
                   }`}>
                   <div>
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <div className="space-y-1.5">
-                        <span className="inline-block text-[10px] font-bold text-[#48a848] uppercase tracking-widest bg-[#48a848]/10 px-2.5 py-1 rounded-md">
+                        <span className="inline-block text-[10px] font-bold text-[#48a848] uppercase tracking-widest bg-[#48a848]/10 px-2.5 py-1 rounded-xl">
                           Série : {sermon.series}
                         </span>
-                        <h3 className="text-lg font-bold text-[#0c2448] dark:text-white leading-snug">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">
                           {sermon.title}
                         </h3>
                       </div>
@@ -129,7 +129,7 @@ export default function AudioSermons() {
                     </div>
 
                     {/* Metadata */}
-                    <div className="grid grid-cols-3 gap-2 py-4 border-t border-b border-slate-100 dark:border-slate-800/80 text-xs text-slate-500">
+                    <div className="grid grid-cols-3 gap-2 py-4 border-t border-b border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
                       <div className="flex items-center gap-1.5">
                         <User size={13} className="text-[#48a848]" />
                         <span className="truncate">{sermon.preacher}</span>
@@ -149,7 +149,7 @@ export default function AudioSermons() {
 
                   {/* Actions / Download */}
                   <div className="mt-6 flex items-center justify-between">
-                    <span className="text-xs text-slate-400 flex items-center gap-1">
+                    <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
                       <Disc
                         size={12}
                         className={
@@ -166,7 +166,7 @@ export default function AudioSermons() {
                       href={sermon.fileUrl}
                       download
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs font-bold text-[#0c2448] dark:text-white border border-slate-200 dark:border-slate-700 hover:bg-[#0c2448] hover:text-white hover:border-[#0c2448] transition-all">
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-[#0c2448] hover:text-white hover:border-[#0c2448] transition-colors duration-200">
                       <Download size={13} />
                       Télécharger
                     </a>
@@ -175,12 +175,12 @@ export default function AudioSermons() {
               );
             })
           ) : (
-            <div className="col-span-full text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
-              <Search className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300">
+            <div className="col-span-full text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 transition-colors duration-200">
+              <Search className="w-12 h-12 text-slate-400 dark:text-slate-600 mx-auto mb-3" />
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
                 Aucun sermon trouvé
               </h3>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
                 Essayez d'ajuster votre recherche.
               </p>
             </div>

@@ -59,15 +59,15 @@ export default function NewConvertsSection() {
   ];
 
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen pb-20 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-200">
       {/* 1. HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Bienvenue dans la Famille de Dieu
           </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          <h1 className="text-white text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Nouveaux Convertis
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -83,7 +83,7 @@ export default function NewConvertsSection() {
           {/* Guide & Enseignements */}
           <div className="lg:col-span-2 space-y-12">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0c2448] dark:text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-4">
                 Vos premiers pas dans la foi
               </h2>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
@@ -100,16 +100,16 @@ export default function NewConvertsSection() {
               {steps.map((step) => (
                 <div
                   key={step.id}
-                  className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 flex flex-col sm:flex-row gap-5 shadow-sm hover:shadow-md transition-all">
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row gap-5 shadow-sm hover:shadow-md transition-all duration-200">
                   <div
-                    className={`w-12 h-12 rounded-2xl ${step.color} flex items-center justify-center shrink-0 shadow-md`}>
+                    className={`w-12 h-12 rounded-xl ${step.color} flex items-center justify-center shrink-0 shadow-md`}>
                     {step.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-[#0c2448] dark:text-white mb-2">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -118,8 +118,8 @@ export default function NewConvertsSection() {
             </div>
 
             {/* Versets d'Affermissement */}
-            <div className="bg-[#0c2448]/5 dark:bg-white/5 border border-[#0c2448]/10 dark:border-white/10 p-8 rounded-3xl">
-              <h3 className="text-xl font-bold text-[#0c2448] dark:text-white mb-4">
+            <div className="bg-[#0c2448]/5 dark:bg-white/5 border border-[#0c2448]/10 dark:border-white/10 p-8 rounded-2xl">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">
                 Promesses divines pour vous
               </h3>
               <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400 italic">
@@ -144,8 +144,8 @@ export default function NewConvertsSection() {
           </div>
 
           {/* Formulaire d'accompagnement */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-8 rounded-[2.5rem] shadow-xl sticky top-24">
-            <h3 className="text-xl font-extrabold text-[#0c2448] dark:text-white mb-2 flex items-center gap-2">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-2xl shadow-xl sticky top-24 transition-colors duration-200">
+            <h3 className="text-xl font-extrabold text-slate-900 dark:text-slate-100 mb-2 flex items-center gap-2">
               Nous voulons vous guider
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
@@ -159,7 +159,7 @@ export default function NewConvertsSection() {
                 <div className="w-16 h-16 bg-[#48a848]/10 rounded-full flex items-center justify-center mx-auto text-[#48a848]">
                   <CheckCircle size={36} />
                 </div>
-                <h4 className="font-bold text-lg text-[#0c2448] dark:text-white">
+                <h4 className="font-bold text-lg text-slate-900 dark:text-slate-100">
                   Formulaire Reçu !
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed px-4">
@@ -265,7 +265,7 @@ export default function NewConvertsSection() {
                 <MessageCircle size={15} />
               </div>
               <div>
-                <h4 className="font-bold text-[11.5px] text-[#0c2448] dark:text-white">
+                <h4 className="font-bold text-[11.5px] text-slate-900 dark:text-slate-100">
                   PLEROMA Class
                 </h4>
                 <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">

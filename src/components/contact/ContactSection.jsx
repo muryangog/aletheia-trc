@@ -30,12 +30,12 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen pb-20 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-200">
       {/* 1. HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Contactez-nous
           </span>
           <h1 className="type-page-title text-white mb-4">Nous Contacter</h1>
@@ -52,10 +52,10 @@ export default function ContactSection() {
           {/* Infos de contact */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <h2 className="text-2xl font-extrabold text-[#0c2448] dark:text-white mb-6">
+              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 mb-6">
                 Coordonnées de l'église
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-8">
                 Retrouvez-nous à notre sanctuaire de Bujumbura ou joignez-nous
                 directement par téléphone ou par email.
               </p>
@@ -68,7 +68,7 @@ export default function ContactSection() {
                   <MapPin size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0c2448] dark:text-white text-sm">
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm">
                     Adresse Physique
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
@@ -84,7 +84,7 @@ export default function ContactSection() {
                   <Phone size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0c2448] dark:text-white text-sm">
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm">
                     Téléphone & WhatsApp
                   </h4>
                   <a
@@ -103,7 +103,7 @@ export default function ContactSection() {
                   <Mail size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0c2448] dark:text-white text-sm">
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm">
                     Adresse Email
                   </h4>
                   <a
@@ -120,7 +120,7 @@ export default function ContactSection() {
                   <Clock size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#0c2448] dark:text-white text-sm">
+                  <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm">
                     Heures de Service
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
@@ -131,7 +131,7 @@ export default function ContactSection() {
             </div>
 
             {/* Google Map */}
-            <div className="rounded-3xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 h-64 bg-slate-200">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 h-64 bg-slate-200">
               <iframe
                 className="w-full h-full border-none"
                 src="https://maps.google.com/maps?q=Kinindo%2C%20Bujumbura%2C%20Burundi&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -143,8 +143,8 @@ export default function ContactSection() {
           </div>
 
           {/* Formulaire de Contact */}
-          <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 md:p-10 border border-slate-200/80 dark:border-slate-800 shadow-xl">
-            <h3 className="text-xl font-extrabold text-[#0c2448] dark:text-white mb-6">
+          <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xl transition-colors duration-200">
+            <h3 className="text-xl font-extrabold text-slate-900 dark:text-slate-100 mb-6">
               Envoyer un message
             </h3>
 

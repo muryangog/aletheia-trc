@@ -38,10 +38,10 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   title={s.label}
                   aria-label={s.label}
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-[#294466] bg-[#12305a]
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-slate-700 bg-slate-800/80
                    flex items-center justify-center
                    text-white/70 hover:bg-[#48a848] hover:border-[#48a848]
-                   hover:text-white transition-colors duration-150 shrink-0">
+                   hover:text-white transition-colors duration-200 shrink-0">
                   <IconComponent className="text-base sm:text-lg" />
                 </a>
               );
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col py-8 divide-y divide-[#294466] border-b border-[#294466]">
+        <div className="flex flex-col py-8 divide-y divide-slate-800 border-b border-slate-800">
           <div className="pb-8 flex flex-col items-center text-center">
             <p className="text-[11px] tracking-[0.18em] uppercase text-[#5cbd5c] mb-4 font-semibold">
               Navigation Rapide
@@ -59,18 +59,18 @@ export default function Footer() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="px-3.5 py-1.5 rounded-full text-[12.5px] font-medium
-                             text-slate-300 border border-[#294466] bg-[#12305a]
+                  className="px-3.5 py-1.5 rounded-xl text-[12.5px] font-medium
+                             text-slate-300 border border-slate-700 bg-slate-800/80
                              hover:bg-[#48a848] hover:border-[#48a848] hover:text-white
-                             transition-colors duration-150 whitespace-nowrap">
+                             transition-colors duration-200 whitespace-nowrap">
                   {l.label}
                 </Link>
               ))}
               <Link
                 href="/don"
-                className="px-4 py-1.5 rounded-full text-[12.5px] font-semibold
+                className="px-4 py-1.5 rounded-xl text-[12.5px] font-semibold
                            bg-[#48a848] hover:bg-[#3a8a3a] text-white shadow-sm
-                           transition-colors duration-150 whitespace-nowrap">
+                           transition-colors duration-200 whitespace-nowrap">
                 Faire un don
               </Link>
             </div>
@@ -84,7 +84,7 @@ export default function Footer() {
               {CHURCH_SERVICE_TIMES.map((service) => (
                 <div
                   key={service.day}
-                  className="p-3.5 rounded-xl bg-[#12305a] border border-[#294466] flex items-center justify-center gap-3 text-left">
+                  className="p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700/60 flex items-center justify-center gap-3 text-left">
                   <div className="w-8 h-8 rounded-xl bg-[#48a848]/15 border border-[#48a848]/30 flex items-center justify-center text-[#5cbd5c] shrink-0">
                     <Clock size={16} />
                   </div>

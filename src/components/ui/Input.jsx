@@ -22,7 +22,7 @@ export default function Input({
       <input
         id={id}
         type={type}
-        className={`type-body w-full px-4 py-2.5 rounded-xl border border-(--color-border) bg-(--color-surface-muted) text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48a848]/30 focus:border-[#48a848] transition-all ${
+        className={`type-body w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#48a848]/30 focus:border-[#48a848] transition-colors duration-200 ${
           error ? "border-red-500 focus:border-red-500" : ""
         } ${className}`}
         aria-invalid={error ? "true" : undefined}

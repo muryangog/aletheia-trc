@@ -17,7 +17,7 @@ export default function Badge({
 
   return (
     <span
-      className={`type-caption inline-flex items-center gap-1.5 px-3 py-1 rounded-full uppercase tracking-wider border ${
+      className={`type-caption inline-flex items-center gap-1.5 px-3 py-1 rounded-xl uppercase tracking-wider border transition-colors duration-200 ${
         variantStyles[variant] || variantStyles.green
       } ${className}`}
       {...props}>

@@ -33,13 +33,13 @@ export default function HeroContent({ title, sub, id }) {
           className="flex flex-col sm:flex-row gap-5 justify-center items-center">
           <Link
             href="/contact"
-            className="inline-flex justify-center items-center bg-[#48a848] hover:bg-[#3a8a3a] text-white px-10 py-3.5 rounded-lg font-bold transition-colors duration-150 shadow-lg text-lg min-w-[200px]">
+            className="inline-flex justify-center items-center bg-[#48a848] hover:bg-[#3a8a3a] text-white px-10 py-3.5 rounded-xl font-bold transition-colors duration-200 shadow-lg text-lg min-w-[200px]">
             Nous Contacter
           </Link>
 
           <Link
             href="/sermons/videos"
-            className="inline-flex justify-center items-center border border-white/50 hover:bg-[#0c2448] text-white px-10 py-3.5 rounded-lg font-bold transition-colors duration-150 text-lg min-w-[200px]">
+            className="inline-flex justify-center items-center border border-white/50 hover:bg-[#0c2448] text-white px-10 py-3.5 rounded-xl font-bold transition-colors duration-200 text-lg min-w-[200px]">
             Derniers Sermons
           </Link>
         </motion.div>

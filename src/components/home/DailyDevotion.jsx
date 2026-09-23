@@ -46,16 +46,16 @@ export default function DailyDevotion() {
   const devotions = DAILY_DEVOTIONS;
 
   return (
-    <section className="py-16 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 transition-colors duration-300">
+    <section className="py-16 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 mt-8">
         {/* Onglets principaux */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
           <button
             onClick={() => setActiveTab("read")}
-            className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors duration-200 ${
               activeTab === "read"
                 ? "bg-[#48a848] text-white shadow-md shadow-[#48a848]/25"
-                : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
+                : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}>
             <BookOpen size={16} />
             Dévotion Quotidienne
@@ -63,10 +63,10 @@ export default function DailyDevotion() {
 
           <button
             onClick={() => setActiveTab("live")}
-            className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 ${
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-colors duration-200 ${
               activeTab === "live"
                 ? "bg-red-600 text-white shadow-md shadow-red-600/25"
-                : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
+                : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
             }`}>
             <YoutubeIcon />
             Flux Direct (Live)
@@ -76,10 +76,10 @@ export default function DailyDevotion() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2">
             {activeTab === "read" ? (
-              <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-700/50 overflow-hidden">
-                <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between">
+              <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden transition-colors duration-200">
+                <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-slate-100 dark:border-slate-700 bg-slate-100">
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
                       <Image
                         src="/Logo_aletheia.png"
                         alt="Logo Aletheia"
@@ -89,14 +89,14 @@ export default function DailyDevotion() {
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-sm text-[#0c2448] dark:text-white leading-tight">
+                        <span className="font-bold text-sm text-slate-900 dark:text-slate-100 leading-tight">
                           Aletheia Truth Revealed Church
                         </span>
                         <span className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center text-white text-[8px] font-bold">
                           ✓
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-400 font-medium block">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block">
                         {devotions[lang]?.date || "Aujourd'hui"} · Publié par
                         l'équipe Média · 🌐
                       </span>
@@ -110,15 +110,15 @@ export default function DailyDevotion() {
                   </div>
 
                   {/* Sélecteur de langue */}
-                  <div className="flex gap-1 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl">
+                  <div className="flex gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
                     {["kr", "fr", "en"].map((l) => (
                       <button
                         key={l}
                         onClick={() => setLang(l)}
-                        className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase transition-all ${
+                        className={`px-3 py-1 rounded-xl text-[10px] font-bold uppercase transition-colors duration-200 ${
                           lang === l
                             ? "bg-[#48a848] text-white shadow-sm"
-                            : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                            : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
                         }`}>
                         {l}
                       </button>
@@ -128,10 +128,10 @@ export default function DailyDevotion() {
 
                 {/* Corps du post */}
                 <div className="p-6 md:p-8 space-y-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#48a848]/10 text-[#48a848] text-xs font-bold uppercase tracking-wider">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#48a848]/10 text-[#48a848] text-xs font-bold uppercase tracking-wider">
                     Dévotion du jour
                   </span>
-                  <h3 className="text-xl md:text-2xl font-extrabold text-[#0c2448] dark:text-white">
+                  <h3 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-slate-100">
                     {devotions[lang]?.title}
                   </h3>
                   <p className="text-[#48a848] font-bold text-sm italic">
@@ -142,7 +142,7 @@ export default function DailyDevotion() {
                   </p>
                 </div>
 
-                <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/40 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-xs text-slate-500">
+                <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/40 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1 hover:text-[#48a848] transition-colors cursor-pointer">
                       <Heart size={14} className="text-red-500 fill-red-500" />
@@ -166,7 +166,7 @@ export default function DailyDevotion() {
                 </div>
               </div>
             ) : (
-              <div className="rounded-3xl overflow-hidden shadow-2xl bg-black aspect-video border border-slate-200 dark:border-slate-800 relative group">
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video border border-slate-200 dark:border-slate-800 relative group">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/live_stream?channel=UC_TON_ID_ICI"
@@ -174,7 +174,7 @@ export default function DailyDevotion() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-                <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 animate-pulse shadow-md z-10">
+                <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-xl flex items-center gap-1.5 animate-pulse shadow-md z-10">
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                   EN DIRECT SUR YOUTUBE
                 </div>
@@ -184,7 +184,7 @@ export default function DailyDevotion() {
 
           <div className="space-y-6">
             {/* CARTE PLEROMA */}
-            <div className="bg-[#0c2448] p-6 rounded-3xl text-white shadow-xl relative overflow-hidden group border border-white/5">
+            <div className="bg-[#0c2448] p-6 rounded-2xl text-white shadow-xl relative overflow-hidden group border border-white/5">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[12px_12px]" />
               <h4 className="text-[#48a848] font-bold text-[10px] uppercase mb-1 tracking-wider">
                 Aletheia Academy
@@ -198,13 +198,13 @@ export default function DailyDevotion() {
               </p>
               <Link
                 href="/ministeres"
-                className="inline-flex items-center gap-2 bg-[#12305a] px-4 py-2.5 rounded-lg text-xs font-bold hover:bg-[#294466] transition-colors duration-150 text-white border border-[#294466]">
+                className="inline-flex items-center gap-2 bg-[#12305a] px-4 py-2.5 rounded-xl text-xs font-bold hover:bg-[#294466] transition-colors duration-200 text-white border border-[#294466]">
                 Découvrir l'Academy <Play size={10} className="fill-white" />
               </Link>
             </div>
 
             {/* CARTE PODCAST */}
-            <div className="bg-[#48a848] p-6 rounded-3xl text-white shadow-xl relative overflow-hidden group border border-white/5">
+            <div className="bg-[#48a848] p-6 rounded-2xl text-white shadow-xl relative overflow-hidden group border border-white/5">
               <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-size-[12px_12px]" />
               <h4 className="text-white/80 font-bold text-[10px] uppercase mb-1 tracking-wider">
                 Sermons & Audios
@@ -218,7 +218,7 @@ export default function DailyDevotion() {
               </p>
               <Link
                 href="/sermons/audio"
-                className="inline-flex items-center gap-2 bg-[#0c2448] hover:bg-[#07162b] px-4 py-2.5 rounded-xl text-xs font-bold shadow-lg transition-all">
+                className="inline-flex items-center gap-2 bg-[#0c2448] hover:bg-[#07162b] px-4 py-2.5 rounded-xl text-xs font-bold shadow-lg transition-colors duration-200">
                 Écouter maintenant <Radio size={12} />
               </Link>
             </div>

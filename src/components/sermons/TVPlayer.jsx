@@ -356,7 +356,7 @@ export default function TVPlayer() {
               <Tv className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight">
+              <h1 className="text-white text-xl font-bold tracking-tight">
                 Aletheia TRC TV
               </h1>
               <p className="text-[10px] text-white/50">
@@ -386,7 +386,7 @@ export default function TVPlayer() {
         <div className="lg:col-span-8 space-y-4">
           <div
             ref={containerRef}
-            className="relative aspect-video w-full rounded-3xl overflow-hidden bg-black border border-white/10 shadow-2xl group">
+            className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border border-white/10 shadow-2xl group">
             <div
               id="youtube-tv-player"
               className="w-full h-full pointer-events-none"
@@ -427,7 +427,7 @@ export default function TVPlayer() {
             )}
           </div>
 
-          <div className="bg-slate-900 border border-white/5 p-6 rounded-3xl space-y-2">
+          <div className="bg-slate-900 border border-white/5 p-6 rounded-2xl space-y-2">
             <span
               className={`text-[10px] font-bold uppercase tracking-widest ${
                 isLiveActive ? "text-red-500 animate-pulse" : "text-[#48a848]"
@@ -449,14 +449,14 @@ export default function TVPlayer() {
         </div>
 
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-slate-900 border border-white/5 p-6 rounded-3xl space-y-4">
+          <div className="bg-slate-900 border border-white/5 p-6 rounded-2xl space-y-4">
             <h3 className="text-base font-bold flex items-center gap-2 border-b border-white/5 pb-4">
               <ListVideo className="text-[#48a848]" size={18} />
               Programme Continu ({playlist.length} vidéos)
             </h3>
 
             {isLiveActive && (
-              <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-2xl text-xs text-red-400 font-medium">
+              <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-xs text-red-400 font-medium">
                 Un direct est actuellement en cours. La playlist 24/7 reprendra
                 automatiquement à la fin du direct.
               </div>
@@ -488,7 +488,7 @@ export default function TVPlayer() {
                           ? "bg-[#48a848]/10 border-[#48a848] text-white"
                           : "bg-slate-950 border-white/5 text-white/70 hover:bg-slate-800"
                       } ${isLiveActive ? "opacity-40 cursor-not-allowed" : ""}`}>
-                      <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center shrink-0 text-xs font-bold">
+                      <div className="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center shrink-0 text-xs font-bold">
                         {isActive && isPlaying ? (
                           <span className="w-2.5 h-2.5 bg-[#48a848] rounded-full animate-ping" />
                         ) : (
@@ -510,7 +510,7 @@ export default function TVPlayer() {
             )}
           </div>
 
-          <div className="bg-linear-to-br from-[#0c2448] to-slate-900 border border-white/5 p-6 rounded-3xl space-y-3">
+          <div className="bg-linear-to-br from-[#0c2448] to-slate-900 border border-white/5 p-6 rounded-2xl space-y-3">
             <Sparkles size={20} className="text-[#48a848]" />
             <h4 className="font-bold text-sm">Visitez notre chaîne YouTube</h4>
             <p className="text-[10px] text-white/60 leading-relaxed">

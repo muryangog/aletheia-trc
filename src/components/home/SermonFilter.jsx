@@ -29,7 +29,7 @@ export default function SermonFilter() {
 
   return (
     <div
-      className="relative z-30 pointer-events-auto bg-[#0c2448] border border-[#294466] p-2 rounded-xl shadow-lg w-full max-w-4xl mx-auto"
+      className="relative z-30 pointer-events-auto bg-[#0c2448] border border-[#294466] p-2.5 rounded-2xl shadow-lg w-full max-w-4xl mx-auto"
       onClick={(e) => e.stopPropagation()}>
       <form
         onSubmit={handleSearch}
@@ -41,7 +41,7 @@ export default function SermonFilter() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Titre du sermon..."
-            className="w-full bg-[#12305a] border border-[#294466] focus:ring-2 focus:ring-[#48a848] text-white placeholder:text-[#9fb0c4] pl-12 pr-4 py-3 rounded-lg text-sm outline-none transition-colors duration-150"
+            className="w-full bg-[#12305a] border border-[#294466] focus:ring-2 focus:ring-[#48a848] text-white placeholder:text-[#9fb0c4] pl-12 pr-4 py-3 rounded-xl text-sm outline-none transition-colors duration-200"
           />
         </div>
 
@@ -54,7 +54,7 @@ export default function SermonFilter() {
             value={speaker}
             onChange={(e) => setSpeaker(e.target.value)}
             placeholder="Nom du prédicateur..."
-            className="w-full bg-[#12305a] border border-[#294466] focus:ring-2 focus:ring-[#48a848] text-white placeholder:text-[#9fb0c4] pl-12 pr-4 py-3 rounded-lg text-sm outline-none transition-colors duration-150"
+            className="w-full bg-[#12305a] border border-[#294466] focus:ring-2 focus:ring-[#48a848] text-white placeholder:text-[#9fb0c4] pl-12 pr-4 py-3 rounded-xl text-sm outline-none transition-colors duration-200"
           />
         </div>
 
@@ -66,13 +66,13 @@ export default function SermonFilter() {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full bg-[#12305a] border border-[#294466] focus:ring-2 focus:ring-[#48a848] text-white pl-12 pr-4 py-3 rounded-lg text-sm outline-none cursor-pointer scheme-dark"
+            className="w-full bg-[#12305a] border border-[#294466] focus:ring-2 focus:ring-[#48a848] text-white pl-12 pr-4 py-3 rounded-xl text-sm outline-none cursor-pointer scheme-dark transition-colors duration-200"
           />
         </div>
 
         <button
           type="submit"
-          className="bg-[#48a848] hover:bg-[#3a8a3a] text-white px-6 py-3 rounded-lg font-bold transition-colors duration-150 flex items-center gap-2 w-full md:w-auto justify-center shadow-lg cursor-pointer">
+          className="bg-[#48a848] hover:bg-[#3a8a3a] text-white px-6 py-3 rounded-xl font-bold transition-colors duration-200 flex items-center gap-2 w-full md:w-auto justify-center shadow-lg cursor-pointer">
           <Search className="w-5 h-5" />
           <span className="md:hidden lg:inline text-sm">Rechercher</span>
         </button>

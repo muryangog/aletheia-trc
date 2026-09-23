@@ -74,8 +74,8 @@ export default function NavRessources({ isMobile = false, onCloseMobile }) {
                     key={item.name}
                     href={item.href}
                     onClick={handleLinkClick}
-                    className="flex items-center gap-2.5 p-2.5 rounded-lg transition-colors hover:bg-white/5 group">
-                    <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#48a848]">
+                    className="flex items-center gap-2.5 p-2.5 rounded-xl transition-colors hover:bg-white/5 group">
+                    <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#48a848]">
                       {item.icon}
                     </div>
                     <div className="text-left">
@@ -120,26 +120,26 @@ export default function NavRessources({ isMobile = false, onCloseMobile }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.97 }}
             transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-[calc(100%+10px)] left-0 z-60 bg-white dark:bg-[#0c2448] rounded-[14px] p-1.5 min-w-57.5 border border-[#0c2448]/7 dark:border-white/10 shadow-[0_16px_40px_rgba(12,36,72,0.2),0_2px_8px_rgba(12,36,72,0.1)]">
-            <div className="absolute -top-1.25 left-6 w-2.5 h-2.5 bg-white dark:bg-[#0c2448] rotate-45 border-t border-l border-[#0c2448]/7 dark:border-white/10" />
+            className="absolute top-[calc(100%+10px)] left-0 z-60 bg-white dark:bg-slate-900 rounded-2xl p-1.5 min-w-57.5 border border-slate-200 dark:border-slate-800 shadow-xl transition-colors duration-200">
+            <div className="absolute -top-1.25 left-6 w-2.5 h-2.5 bg-white dark:bg-slate-900 rotate-45 border-t border-l border-slate-200 dark:border-slate-800" />
 
             {ressourceLinks.map((item) => (
               <div key={item.name}>
                 <Link
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2.5 p-2.5 rounded-[9px] group transition-colors hover:bg-[#f5f7fa] dark:hover:bg-white/5">
-                  <div className="w-8 h-8 rounded-lg bg-[#f5f7fa] dark:bg-slate-950/45 border border-[#0c2448]/8 dark:border-white/5 flex items-center justify-center shrink-0 text-[#48a848] transition-all group-hover:bg-[#48a848] group-hover:border-[#48a848]">
+                  className="flex items-center gap-2.5 p-2.5 rounded-xl group transition-colors hover:bg-slate-50 dark:hover:bg-slate-800">
+                  <div className="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 text-[#48a848] transition-all group-hover:bg-[#48a848] group-hover:border-[#48a848]">
                     <span className="group-hover:text-white transition-colors">
                       {item.icon}
                     </span>
                   </div>
                   <div>
-                    <div className="text-[12.5px] font-medium text-[#0c2448] dark:text-white leading-none">
+                    <div className="text-[12.5px] font-medium text-slate-800 dark:text-slate-100 leading-none">
                       {item.name}
                     </div>
                     {item.sub && (
-                      <div className="text-[11px] text-[#6b7a8d] dark:text-white/50 mt-0.75">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.75">
                         {item.sub}
                       </div>
                     )}

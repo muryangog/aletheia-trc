@@ -7,7 +7,7 @@ export default function Welcome() {
   return (
     <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="relative w-full max-w-md mx-auto aspect-4/5 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-800 group">
+        <div className="relative w-full max-w-md mx-auto aspect-4/5 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-800 group">
           <Image
             src="/equipe/evrard-sinagaye.jpg"
             alt="Prophet Evrard Sinagaye"
@@ -29,7 +29,7 @@ export default function Welcome() {
         </div>
 
         <div className="space-y-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#48a848]/10 text-[#48a848] text-xs font-bold uppercase tracking-wider">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-[#48a848]/10 text-[#48a848] text-xs font-bold uppercase tracking-wider">
             Qui sommes-nous ?
           </span>
           <h2 className="type-section-title font-display leading-tight">
@@ -53,13 +53,13 @@ export default function Welcome() {
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
               href="/a-propos/vision"
-              className="inline-flex items-center gap-2 bg-[#0c2448] hover:bg-[#07162b] text-white px-6 py-3 rounded-full text-xs font-bold transition-all shadow-md">
+              className="inline-flex items-center gap-2 bg-[#0c2448] hover:bg-[#07162b] text-white px-6 py-3 rounded-xl text-xs font-bold transition-colors duration-200 shadow-md">
               Notre Vision
               {/* <Compass size={14} /> */}
             </Link>
             <Link
               href="/a-propos/doctrine"
-              className="inline-flex items-center gap-2 bg-slate-200 dark:bg-[#12305a] hover:bg-slate-300 dark:hover:bg-[#294466] text-slate-800 dark:text-white px-6 py-3 rounded-lg text-xs font-bold transition-colors duration-150 border border-slate-200 dark:border-[#294466]">
+              className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 px-6 py-3 rounded-xl text-xs font-bold transition-colors duration-200 border border-slate-200 dark:border-slate-700">
               Nos Croyances
               {/* <ArrowRight size={14} /> */}
             </Link>

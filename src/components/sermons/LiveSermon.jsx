@@ -87,18 +87,18 @@ export default function LiveSermon() {
   };
 
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen pb-20 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-200">
       {/* BANNER */}
       <section className="relative bg-[#0c2448] text-white py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           {isLiveActive ? (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/35 text-red-500 text-xs font-bold uppercase tracking-wider mb-4 animate-pulse">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-600/20 border border-red-500/35 text-red-500 text-xs font-bold uppercase tracking-wider mb-4 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
               Service en Direct (En Antenne)
             </div>
           ) : (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-700/50 border border-slate-600 text-slate-300 text-xs font-bold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-700/50 border border-slate-600 text-slate-300 text-xs font-bold uppercase tracking-wider mb-4">
               <Radio size={13} className="text-slate-400" />
               Hors Antenne
             </div>
@@ -118,7 +118,7 @@ export default function LiveSermon() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Bloc Vidéo */}
           <div className="lg:col-span-8 space-y-6">
-            <div className="rounded-4xl overflow-hidden shadow-2xl bg-black aspect-video border border-slate-200 dark:border-slate-800 relative group">
+            <div className="rounded-2xl overflow-hidden shadow-xl bg-black aspect-video border border-slate-200 dark:border-slate-800 relative group">
               {isLiveLoading ? (
                 <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-400 gap-3">
                   <div className="w-8 h-8 border-2 border-[#48a848] border-t-transparent rounded-full animate-spin" />
@@ -151,12 +151,12 @@ export default function LiveSermon() {
             {/* Infos / Chat */}
             {videoId && (
               <div className="space-y-4">
-                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
-                  <div className="p-3 bg-red-100 dark:bg-red-950/30 text-red-600 rounded-2xl">
+                <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3">
+                  <div className="p-3 bg-red-100 dark:bg-red-950/30 text-red-600 rounded-xl">
                     <Tv size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm text-[#0c2448] dark:text-white">
+                    <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100">
                       {videoTitle || "Diffusion Aletheia"}
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -168,10 +168,10 @@ export default function LiveSermon() {
                 </div>
 
                 {isLiveActive && (
-                  <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
+                  <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
                     <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
                       <MessageSquare size={18} className="text-[#48a848]" />
-                      <h4 className="font-bold text-sm text-[#0c2448] dark:text-white">
+                      <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">
                         Chat du Direct
                       </h4>
                     </div>
@@ -191,14 +191,14 @@ export default function LiveSermon() {
 
           {/* Formulaire requête de prière */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-white dark:bg-slate-900 rounded-4xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-xl">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
               <div className="flex items-center gap-2 mb-3">
                 <HeartHandshake className="text-[#48a848]" size={20} />
-                <h3 className="text-base font-extrabold text-[#0c2448] dark:text-white">
+                <h3 className="text-base font-extrabold text-slate-900 dark:text-slate-100">
                   Requête de Prière Confidentielle
                 </h3>
               </div>
-              <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed mb-6">
+              <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-6">
                 Pour préserver votre vie privée, vos requêtes de prière sont
                 directement transmises à notre équipe pastorale via{" "}
                 <strong>aletheiamediateam@gmail.com</strong>.
@@ -214,7 +214,7 @@ export default function LiveSermon() {
                     value={prayerName}
                     onChange={(e) => setPrayerName(e.target.value)}
                     placeholder="Votre nom"
-                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-xs text-slate-800 dark:text-slate-100 transition-all"
+                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-xs text-slate-900 dark:text-slate-100 transition-colors duration-200"
                   />
                 </div>
 
@@ -228,20 +228,20 @@ export default function LiveSermon() {
                     value={prayerRequest}
                     onChange={(e) => setPrayerRequest(e.target.value)}
                     placeholder="Ecrivez votre sujet de prière ici..."
-                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-xs text-slate-800 dark:text-slate-100 transition-all resize-none"
+                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-xs text-slate-900 dark:text-slate-100 transition-colors duration-200 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#48a848] hover:bg-[#3d913d] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all duration-300">
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#48a848] hover:bg-[#3d913d] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all duration-200">
                   <Mail size={14} />
                   Envoyer directement par Email
                 </button>
               </form>
             </div>
 
-            <div className="bg-[#0c2448] text-white rounded-4xl p-6 border border-white/5 shadow-md flex items-start gap-3">
+            <div className="bg-[#0c2448] text-white rounded-2xl p-6 border border-white/5 shadow-md flex items-start gap-3">
               <ShieldAlert
                 size={18}
                 className="text-[#48a848] shrink-0 mt-0.5"

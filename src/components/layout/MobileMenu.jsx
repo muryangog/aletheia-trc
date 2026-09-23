@@ -47,7 +47,7 @@ export default function MobileMenu({
 
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-lg bg-[#12305a] hover:bg-[#294466] flex items-center justify-center transition-colors duration-150"
+                className="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 flex items-center justify-center transition-colors duration-200"
                 aria-label="Fermer le menu">
                 <X size={18} />
               </button>
@@ -58,10 +58,10 @@ export default function MobileMenu({
                 <input
                   type="search"
                   placeholder="Rechercher..."
-                  className="w-full pl-9 pr-4 h-10 rounded-lg bg-[#12305a] border border-[#294466] text-sm text-white placeholder:text-[#9fb0c4] outline-none focus:border-[#48a848] transition-colors duration-150"
+                  className="w-full pl-9 pr-4 h-10 rounded-xl bg-slate-800/80 border border-slate-700 text-sm text-white placeholder:text-slate-400 outline-none focus:border-[#48a848] transition-colors duration-200"
                 />
                 <Search
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
                   size={14}
                 />
               </div>
@@ -71,7 +71,7 @@ export default function MobileMenu({
               <Link
                 href="/"
                 onClick={onClose}
-                className="type-nav flex items-center py-3 px-3 rounded-lg text-white/75 hover:text-white hover:bg-[#12305a] transition-colors duration-150">
+                className="type-nav flex items-center py-3 px-3 rounded-xl text-white/75 hover:text-white hover:bg-slate-800 transition-colors duration-200">
                 Accueil
               </Link>
 
@@ -80,31 +80,31 @@ export default function MobileMenu({
               <Link
                 href="/ministeres"
                 onClick={onClose}
-                className="type-nav flex items-center py-3 px-3 rounded-lg text-white/75 hover:text-white hover:bg-[#12305a] transition-colors duration-150">
+                className="type-nav flex items-center py-3 px-3 rounded-xl text-white/75 hover:text-white hover:bg-slate-800 transition-colors duration-200">
                 Ministères
               </Link>
 
               <Link
                 href="/don"
                 onClick={onClose}
-                className="type-nav flex items-center py-3 px-3 rounded-lg mt-1 text-[#48a848] font-semibold hover:bg-[#48a848]/10 transition-colors duration-150">
+                className="type-nav flex items-center py-3 px-3 rounded-xl mt-1 text-[#48a848] font-semibold hover:bg-[#48a848]/10 transition-colors duration-200">
                 Faire un Don
               </Link>
 
               <Link
                 href="/contact"
                 onClick={onClose}
-                className="type-nav flex items-center py-3 px-3 rounded-xl text-white/75 hover:text-white hover:bg-white/5 transition-all">
+                className="type-nav flex items-center py-3 px-3 rounded-xl text-white/75 hover:text-white hover:bg-slate-800 transition-colors duration-200">
                 Nous Contacter
               </Link>
             </nav>
 
-            <div className="p-6 pt-5 border-t border-[#294466] space-y-4">
+            <div className="p-6 pt-5 border-t border-slate-800 space-y-4">
               <div className="flex items-center justify-between">
                 <span className="type-small text-white/60">
                   Thème de l'application
                 </span>
-                <ThemeToggle className="w-8 h-8 rounded-lg bg-[#12305a] hover:bg-[#294466] flex items-center justify-center text-[#48a848] transition-colors duration-150" />
+                <ThemeToggle className="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-[#48a848] transition-colors duration-200" />
               </div>
 
               {!isSignedIn ? (
@@ -112,7 +112,7 @@ export default function MobileMenu({
                   <SignInButton mode="modal">
                     <button
                       onClick={onClose}
-                      className="type-button w-full h-10 rounded-lg border border-[#294466] hover:bg-[#12305a] transition-colors duration-150">
+                      className="type-button w-full h-10 rounded-xl border border-slate-700 hover:bg-slate-800 transition-colors duration-200">
                       Connexion
                     </button>
                   </SignInButton>
@@ -120,13 +120,13 @@ export default function MobileMenu({
                   <SignUpButton mode="modal">
                     <button
                       onClick={onClose}
-                      className="type-button w-full h-10 rounded-lg bg-[#48a848] hover:bg-[#3a8a3a] text-white transition-colors duration-150">
+                      className="type-button w-full h-10 rounded-xl bg-[#48a848] hover:bg-[#3a8a3a] text-white transition-colors duration-200">
                       S'inscrire
                     </button>
                   </SignUpButton>
                 </div>
               ) : (
-                <div className="flex items-center justify-between p-3 rounded-lg bg-[#12305a] border border-[#294466]">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-800 border border-slate-700">
                   <div className="flex flex-col">
                     <span className="text-xs text-[#48a848] font-semibold">
                       Mon Compte

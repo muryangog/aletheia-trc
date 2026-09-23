@@ -51,12 +51,12 @@ const OBJECTIFS = [
 
 export default function VisionSection() {
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-200">
       {/* 1. HERO BANNER */}
       <section className="relative bg-blue-950 text-white py-14 sm:py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#5cbd5c_1px,transparent_1px)] bg-size-[16px_16px]" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <span className="inline-block text-green-400 font-semibold text-xs sm:text-sm uppercase tracking-widest bg-green-500/10 px-3.5 py-1.5 rounded-full border border-green-500/20">
+          <span className="inline-block text-green-400 font-semibold text-xs sm:text-sm uppercase tracking-widest bg-green-500/10 px-3.5 py-1.5 rounded-xl border border-green-500/20">
             Aletheia • Truth Revealed Ministries
           </span>
           <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold mt-4 sm:mt-6 mb-3 sm:mb-4 tracking-tight leading-tight">
@@ -74,18 +74,18 @@ export default function VisionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8">
             {/* CARTE VISION */}
-            <div className="bg-(--color-surface) p-6 sm:p-8 rounded-xl border border-(--color-border) shadow-sm relative overflow-hidden">
+            <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden transition-colors duration-200">
               <div className="absolute top-0 right-0 w-1.5 sm:w-2 h-full bg-green-500" />
               <div className="flex items-center gap-3 text-[#287a3d] dark:text-[#6dcc6d] font-bold text-base sm:text-lg mb-3">
                 <Eye className="w-5 h-5 sm:w-6 sm:h-6" />
                 <span>Notre Vision</span>
               </div>
-              <p className="text-(--color-foreground) leading-relaxed text-sm sm:text-base font-medium mb-3">
-                <strong className="text-(--color-heading)">Aletheia</strong> est
+              <p className="text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base font-medium mb-3">
+                <strong className="text-slate-900 dark:text-slate-100">Aletheia</strong> est
                 un ministère qui change la vie dont le but est de dévoiler la
                 vérité de la parole de Dieu.
               </p>
-              <p className="text-(--color-foreground-muted) leading-relaxed text-xs sm:text-sm">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs sm:text-sm">
                 Nous nous sentons accablés par la responsabilité d'amener cette
                 génération au bon sens de la parole de vérité non diluée,
                 jusqu'à ce que nous parvenions à l'unité de la foi et vivions
@@ -95,22 +95,22 @@ export default function VisionSection() {
             </div>
 
             {/* CARTE MISSION */}
-            <div className="bg-(--color-surface) p-6 sm:p-8 rounded-xl border border-(--color-border) shadow-sm relative overflow-hidden">
+            <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden transition-colors duration-200">
               <div className="absolute top-0 right-0 w-1.5 sm:w-2 h-full bg-blue-600" />
-              <div className="flex items-center gap-3 text-(--color-brand-blue) dark:text-white font-bold text-base sm:text-lg mb-3">
+              <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold text-base sm:text-lg mb-3">
                 <Send className="w-5 h-5 sm:w-6 sm:h-6" />
                 <span>Notre Mission</span>
               </div>
-              <p className="text-(--color-foreground) leading-relaxed text-sm sm:text-base font-semibold">
+              <p className="text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base font-semibold">
                 « Briser les mensonges de l'ennemi en enseignant le Dieu inconnu
                 et incompris à travers la révélation du Christ. »
               </p>
             </div>
 
             {/* VERSET CLÉ */}
-            <div className="p-5 sm:p-6 bg-[#e8f5e9] dark:bg-[#163b32] border-l-4 border-[#48a848] rounded-r-xl relative">
+            <div className="p-5 sm:p-6 bg-[#e8f5e9] dark:bg-[#163b32] border-l-4 border-[#48a848] rounded-r-2xl relative">
               <Quote className="absolute top-3 right-3 w-6 h-6 sm:w-8 sm:h-8 text-green-500/20" />
-              <p className="italic text-(--color-foreground) text-xs sm:text-sm md:text-base leading-relaxed mb-2">
+              <p className="italic text-slate-800 dark:text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed mb-2">
                 « Quand le consolateur sera venu, l'Esprit de vérité, il vous
                 conduira dans toute la vérité; car il ne parlera pas de
                 lui-même, mais il dira tout ce qu'il aura entendu, et il vous
@@ -123,7 +123,7 @@ export default function VisionSection() {
           </div>
 
           {/* VISUEL & LOGO */}
-          <div className="relative h-72 sm:h-96 md:h-120 w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-900 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
+          <div className="relative h-72 sm:h-96 md:h-120 w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-900 flex flex-col items-center justify-center p-6 sm:p-8 text-center">
             <div className="absolute inset-0 bg-linear-to-t from-blue-950 via-slate-900/80 to-transparent z-10" />
             <div className="relative z-20 w-44 h-44 sm:w-64 sm:h-64">
               <Image
@@ -133,14 +133,6 @@ export default function VisionSection() {
                 sizes="(max-width: 768px) 176px, 256px"
                 className="object-contain transition-transform duration-500 hover:scale-105"
               />
-            </div>
-            <div className="relative z-20 mt-4 sm:mt-6">
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
-                Aletheia
-              </h3>
-              <p className="text-green-400 text-xs sm:text-sm font-medium">
-                Truth Revealed Ministries
-              </p>
             </div>
           </div>
         </div>
@@ -163,12 +155,12 @@ export default function VisionSection() {
             {PILIERS.map((pilier, index) => (
               <div
                 key={index}
-                className="p-6 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 hover:shadow-lg transition-shadow duration-150 flex flex-col justify-between">
+                className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-200 flex flex-col justify-between">
                 <div>
                   <div className="p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-xl w-fit shadow-sm mb-4 sm:mb-5">
                     {pilier.icon}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-blue-950 dark:text-white">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-slate-900 dark:text-white">
                     {pilier.title}
                   </h3>
                   <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
@@ -183,12 +175,12 @@ export default function VisionSection() {
 
       {/* 4. OBJECTIFS ET ENGAGEMENTS */}
       <section className="py-12 sm:py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-blue-950 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden text-center sm:text-left">
+        <div className="bg-blue-950 text-white rounded-2xl p-6 sm:p-10 md:p-12 shadow-2xl relative overflow-hidden text-center sm:text-left">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#5cbd5c_1px,transparent_1px)] bg-size-[16px_16px]" />
 
           <div className="relative z-10 space-y-6 sm:space-y-8">
             <div>
-              <span className="inline-block text-xs uppercase tracking-widest text-green-400 font-bold bg-green-500/10 px-3.5 py-1 rounded-full border border-green-500/20 mb-3">
+              <span className="inline-block text-xs uppercase tracking-widest text-green-400 font-bold bg-green-500/10 px-3.5 py-1 rounded-xl border border-green-500/20 mb-3">
                 Notre Engagement
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
@@ -200,7 +192,7 @@ export default function VisionSection() {
               {OBJECTIFS.map((obj, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 bg-[#12305a] border border-[#294466] p-4 rounded-lg">
+                  className="flex items-start gap-3 bg-[#12305a] border border-[#294466] p-4 rounded-xl">
                   <ShieldCheck className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
                   <span className="text-slate-200 text-xs sm:text-sm leading-relaxed">
                     {obj}
@@ -212,7 +204,7 @@ export default function VisionSection() {
             <div className="pt-4 flex justify-center sm:justify-start">
               <Link
                 href="/a-propos/equipe"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-full text-xs sm:text-sm transition-all shadow-md hover:shadow-green-500/20">
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-xl text-xs sm:text-sm transition-colors duration-200 shadow-md hover:shadow-green-500/20">
                 <span>Découvrir l'Équipe Pastorale</span>
                 <ArrowRight size={16} />
               </Link>

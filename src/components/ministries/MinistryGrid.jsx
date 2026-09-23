@@ -18,15 +18,15 @@ export default function MinistryGrid() {
   );
 
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen pb-20 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-200">
       {/* HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-14 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Servir ensemble
           </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+          <h1 className="text-white text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
             Tous nos Départements
           </h1>
           <p className="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -46,7 +46,7 @@ export default function MinistryGrid() {
               placeholder="Rechercher un département..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#48a848]"
+              className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs sm:text-sm focus:outline-none focus:border-[#48a848] transition-colors duration-200"
             />
           </div>
 
@@ -55,7 +55,7 @@ export default function MinistryGrid() {
               <button
                 key={index}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 border cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors duration-200 border cursor-pointer ${
                   selectedCategory === cat
                     ? "bg-[#48a848] text-white border-[#48a848] shadow-sm"
                     : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-[#48a848]"

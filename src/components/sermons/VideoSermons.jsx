@@ -190,7 +190,7 @@ function SermonsVideoContent() {
       <section className="relative bg-[#0c2448] text-white py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Médiathèque Vidéo
           </span>
           <h1 className="type-page-title text-white mb-4">
@@ -206,21 +206,21 @@ function SermonsVideoContent() {
       {/* 2. BARRE DE RECHERCHE ET FILTRES */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {hasActiveUrlFilters && (
-          <div className="mb-6 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="mb-6 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-wrap items-center justify-between gap-3 text-xs transition-colors duration-200">
             <div className="flex items-center flex-wrap gap-2">
               <span className="font-bold text-slate-500">Résultats pour :</span>
               {urlTitle && (
-                <span className="bg-[#48a848]/10 text-[#48a848] border border-[#48a848]/20 px-3 py-1 rounded-full font-medium">
+                <span className="bg-[#48a848]/10 text-[#48a848] border border-[#48a848]/20 px-3 py-1 rounded-xl font-medium">
                   Titre : "{urlTitle}"
                 </span>
               )}
               {urlSpeaker && (
-                <span className="bg-[#48a848]/10 text-[#48a848] border border-[#48a848]/20 px-3 py-1 rounded-full font-medium">
+                <span className="bg-[#48a848]/10 text-[#48a848] border border-[#48a848]/20 px-3 py-1 rounded-xl font-medium">
                   Prédicateur : "{urlSpeaker}"
                 </span>
               )}
               {urlDate && (
-                <span className="bg-[#48a848]/10 text-[#48a848] border border-[#48a848]/20 px-3 py-1 rounded-full font-medium">
+                <span className="bg-[#48a848]/10 text-[#48a848] border border-[#48a848]/20 px-3 py-1 rounded-xl font-medium">
                   Date : {urlDate}
                 </span>
               )}
@@ -243,7 +243,7 @@ function SermonsVideoContent() {
                   setSelectedCategory(cat);
                   setCurrentPage(1);
                 }}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap outline-none ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors duration-200 whitespace-nowrap outline-none ${
                   selectedCategory === cat
                     ? "bg-[#0c2448] text-white shadow-sm"
                     : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
@@ -263,7 +263,7 @@ function SermonsVideoContent() {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-slate-800 dark:text-white transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#48a848]/20 focus:border-[#48a848] text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors duration-200"
             />
           </div>
         </div>
@@ -274,12 +274,12 @@ function SermonsVideoContent() {
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <div
                 key={n}
-                className="bg-white dark:bg-slate-900 rounded-3xl h-80 animate-pulse border border-slate-200 dark:border-slate-800"
+                className="bg-white dark:bg-slate-900 rounded-2xl h-80 animate-pulse border border-slate-200 dark:border-slate-800"
               />
             ))}
           </div>
         ) : error ? (
-          <div className="text-center py-12 bg-red-50 dark:bg-red-950/20 text-red-600 rounded-3xl border border-red-200 dark:border-red-900">
+          <div className="text-center py-12 bg-red-50 dark:bg-red-950/20 text-red-600 rounded-2xl border border-red-200 dark:border-red-900">
             <p className="text-sm font-semibold">{error}</p>
           </div>
         ) : paginatedVideos.length > 0 ? (
@@ -289,7 +289,7 @@ function SermonsVideoContent() {
                 <div
                   key={video.id}
                   onClick={() => setActiveVideoId(video.youtubeId)}
-                  className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-lg transition-shadow duration-150 flex flex-col justify-between group cursor-pointer">
+                  className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group cursor-pointer">
                   <div className="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 z-10 transition-colors" />
 
@@ -303,7 +303,7 @@ function SermonsVideoContent() {
                       />
                     )}
 
-                    <div className="absolute top-3 left-3 bg-[#0c2448] text-white text-[10px] font-bold px-2.5 py-1 rounded-md z-20 shadow-sm">
+                    <div className="absolute top-3 left-3 bg-[#0c2448] text-white text-[10px] font-bold px-2.5 py-1 rounded-xl z-20 shadow-sm">
                       {video.category}
                     </div>
 
@@ -315,11 +315,11 @@ function SermonsVideoContent() {
                   </div>
 
                   <div className="p-6 space-y-4">
-                    <h3 className="text-base md:text-lg font-bold text-[#0c2448] dark:text-white leading-snug line-clamp-2 group-hover:text-[#48a848] transition-colors">
+                    <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-[#48a848] transition-colors">
                       {video.title}
                     </h3>
 
-                    <div className="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800">
                       <span className="flex items-center gap-1 font-medium truncate max-w-45">
                         <User size={13} className="text-[#48a848] shrink-0" />
                         {video.preacher}
@@ -342,11 +342,11 @@ function SermonsVideoContent() {
                     setCurrentPage((prev) => Math.max(prev - 1, 1))
                   }
                   disabled={currentPage === 1}
-                  className="p-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shadow-sm">
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 shadow-sm">
                   <ChevronLeft size={18} />
                 </button>
 
-                <span className="text-xs font-bold text-slate-600 dark:text-slate-400 px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full">
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 px-3.5 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
                   Page {currentPage} sur {totalPages}
                 </span>
 
@@ -355,7 +355,7 @@ function SermonsVideoContent() {
                     setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                   }
                   disabled={currentPage === totalPages}
-                  className="p-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shadow-sm">
+                  className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 shadow-sm">
                   <ChevronRight size={18} />
                 </button>
               </div>
@@ -364,7 +364,7 @@ function SermonsVideoContent() {
                 <button
                   onClick={handleFetchMoreFromYouTube}
                   disabled={loadingMore}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0c2448] hover:bg-[#143260] text-white font-bold text-xs shadow-md transition-all">
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0c2448] hover:bg-[#143260] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all">
                   {loadingMore ? (
                     <>
                       <Loader2 size={16} className="animate-spin" />
@@ -378,18 +378,18 @@ function SermonsVideoContent() {
             </div>
           </>
         ) : (
-          <div className="text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
-            <Video className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-slate-700 dark:text-slate-300">
+          <div className="text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 transition-colors duration-200">
+            <Video className="w-12 h-12 text-slate-400 dark:text-slate-600 mx-auto mb-3" />
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
               Aucune vidéo trouvée
             </h3>
-            <p className="text-sm text-slate-400 mt-1 mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 mb-4">
               Ajustez votre recherche ou réinitialisez vos filtres.
             </p>
             {hasActiveUrlFilters && (
               <Link
                 href="/sermons/videos"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#48a848] text-white text-xs font-bold shadow-sm">
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#48a848] hover:bg-[#3a8a3a] text-white text-xs font-bold shadow-sm transition-colors duration-200">
                 Réinitialiser la recherche
               </Link>
             )}
@@ -398,15 +398,15 @@ function SermonsVideoContent() {
       </section>
 
       {activeVideoId && (
-        <div className="fixed inset-0 bg-[#071324]/95 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-slate-950/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <button
             onClick={() => setActiveVideoId(null)}
-            className="absolute top-6 right-6 p-2 bg-[#12305a] hover:bg-[#294466] rounded-lg text-white transition-colors duration-150 outline-none"
+            className="absolute top-6 right-6 p-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-slate-300 hover:text-white transition-colors duration-200 outline-none"
             aria-label="Fermer la vidéo">
             <X size={24} />
           </button>
 
-          <div className="w-full max-w-4xl aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl relative">
+          <div className="w-full max-w-4xl aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl relative border border-slate-800">
             <iframe
               className="w-full h-full"
               src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}

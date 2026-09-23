@@ -29,12 +29,12 @@ export default function BeliefsSection() {
   };
 
   return (
-    <div className="bg-(--color-background) text-(--color-foreground) min-h-screen pb-20 transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen pb-20 transition-colors duration-200">
       {/* 1. HERO BANNER */}
       <section className="relative bg-[#0c2448] text-white py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#48a848_1px,transparent_1px)] bg-size-[20px_20px]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#48a848]/20 border border-[#48a848]/40 text-[#5cbd5c] text-xs font-semibold tracking-wider uppercase mb-4">
             Fondations de la Foi
           </span>
           <h1 className="type-page-title text-white mb-4">Nos Croyances</h1>
@@ -48,10 +48,10 @@ export default function BeliefsSection() {
       {/* 2. CONTENU PRINCIPAL */}
       <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-[#0c2448] dark:text-white mb-4">
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 mb-4">
             Déclaration de Foi
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto">
             Chez Aletheia TRC, nous sommes attachés aux vérités fondamentales de
             l'Évangile historique et réformé, centrés sur la seigneurie de
             Jésus-Christ.
@@ -69,7 +69,7 @@ export default function BeliefsSection() {
             return (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden transition-all duration-300">
+                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors duration-200">
                 <button
                   onClick={() => toggleIndex(index)}
                   className="w-full flex items-center justify-between p-6 text-left outline-none">
@@ -78,10 +78,10 @@ export default function BeliefsSection() {
                       {icon}
                     </div>
                     <div>
-                      <h3 className="text-base md:text-lg font-bold text-[#0c2448] dark:text-white transition-colors group-hover:text-[#48a848]">
+                      <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-slate-100 transition-colors group-hover:text-[#48a848]">
                         {belief.title}
                       </h3>
-                      <p className="text-xs text-slate-400 mt-1 line-clamp-1">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
                         {belief.summary}
                       </p>
                     </div>

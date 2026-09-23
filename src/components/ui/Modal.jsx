@@ -37,10 +37,10 @@ export default function Modal({
         aria-modal="true"
         aria-label={title || "Boîte de dialogue"}
         tabIndex={-1}
-        className={`bg-(--color-surface) border border-(--color-border) w-full ${maxWidth} rounded-xl overflow-hidden shadow-lg relative flex flex-col max-h-[90vh]`}>
+        className={`bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 w-full ${maxWidth} rounded-2xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh] transition-colors duration-200`}>
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 bg-slate-100 dark:bg-[#12305a] hover:bg-slate-200 dark:hover:bg-[#294466] rounded-lg text-slate-700 dark:text-white transition-colors duration-150 z-20 outline-none"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-xl text-slate-600 dark:text-slate-300 transition-colors duration-200 z-20 outline-none"
           aria-label="Fermer la boîte de dialogue">
           <X size={18} />
         </button>

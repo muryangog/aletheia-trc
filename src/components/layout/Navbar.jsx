@@ -67,7 +67,7 @@ export default function Navbar() {
       </div>
 
       {/* ── Navbar principale ── */}
-      <nav className="bg-white dark:bg-[#0a1a30] border-b border-[#0c2448]/8 dark:border-white/6 shadow-sm transition-colors duration-300 relative z-40">
+      <nav className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-200 relative z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18.5 gap-4">
             <div className="flex items-center justify-between w-full lg:w-auto">
@@ -83,7 +83,7 @@ export default function Navbar() {
               </Link>
 
               <button
-                className="lg:hidden p-2 rounded-lg bg-[#f0f4f8] dark:bg-[#12305a] text-[#0c2448] dark:text-white transition-colors duration-150"
+                className="lg:hidden p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 transition-colors duration-200"
                 onClick={() => setIsOpen(true)}
                 aria-label="Ouvrir le menu">
                 <Menu size={22} />
@@ -94,46 +94,46 @@ export default function Navbar() {
               <input
                 type="search"
                 placeholder="Rechercher un sermon, un événement..."
-                className="w-full pl-9 pr-4 h-9.5 border border-[#d5dde7] dark:border-[#294466] rounded-lg bg-[#f5f7fa] dark:bg-[#12305a] text-sm text-[#0c2448] dark:text-white placeholder:text-[#6b7a8d] dark:placeholder:text-[#9fb0c4] focus:border-[#48a848] focus:ring-2 focus:ring-[#48a848]/20 outline-none transition-colors duration-150"
+                className="w-full pl-9 pr-4 h-9.5 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-[#48a848] focus:ring-2 focus:ring-[#48a848]/20 outline-none transition-colors duration-200"
               />
               <Search
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6b7a8d] dark:text-white/30"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"
                 size={14}
               />
             </div>
 
             <div className="hidden sm:flex items-center gap-2.5 shrink-0">
-              <ThemeToggle className="w-9.5 h-9.5 rounded-lg border border-[#d5dde7] dark:border-[#294466] bg-transparent hover:bg-[#0c2448] dark:hover:bg-[#12305a] text-[#0c2448] dark:text-[#48a848] hover:text-white flex items-center justify-center transition-colors duration-150" />
+              <ThemeToggle className="w-9.5 h-9.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-[#48a848] flex items-center justify-center transition-colors duration-200" />
 
-              <div className="w-px h-5 bg-[#d5dde7] dark:bg-[#294466]" />
+              <div className="w-px h-5 bg-slate-200 dark:bg-slate-800" />
 
               {!clerkAvailable ? (
                 <>
-                  <button className="h-9.5 px-5 rounded-lg border border-[#b7c4d3] dark:border-[#294466] text-[12.5px] font-medium text-[#0c2448] dark:text-white hover:bg-[#0c2448] hover:text-white hover:border-[#0c2448] transition-colors duration-150">
+                  <button className="h-9.5 px-5 rounded-xl border border-slate-200 dark:border-slate-800 text-[12.5px] font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200">
                     Connexion
                   </button>
-                  <button className="h-9.5 px-5 rounded-lg bg-[#48a848] hover:bg-[#3a8a3a] text-[12.5px] font-semibold text-white transition-colors duration-150 shadow-sm">
+                  <button className="h-9.5 px-5 rounded-xl bg-[#48a848] hover:bg-[#3a8a3a] text-[12.5px] font-semibold text-white transition-colors duration-200 shadow-sm">
                     S'inscrire
                   </button>
                 </>
               ) : !isSignedIn ? (
                 <>
                   <SignInButton mode="modal">
-                    <button className="h-9.5 px-5 rounded-lg border border-[#b7c4d3] dark:border-[#294466] text-[12.5px] font-medium text-[#0c2448] dark:text-white hover:bg-[#0c2448] hover:text-white hover:border-[#0c2448] transition-colors duration-150">
+                    <button className="h-9.5 px-5 rounded-xl border border-slate-200 dark:border-slate-800 text-[12.5px] font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200">
                       Connexion
                     </button>
                   </SignInButton>
 
                   <SignUpButton mode="modal">
-                    <button className="h-9.5 px-5 rounded-lg bg-[#48a848] hover:bg-[#3a8a3a] text-[12.5px] font-semibold text-white transition-colors duration-150 shadow-sm">
+                    <button className="h-9.5 px-5 rounded-xl bg-[#48a848] hover:bg-[#3a8a3a] text-[12.5px] font-semibold text-white transition-colors duration-200 shadow-sm">
                       S'inscrire
                     </button>
                   </SignUpButton>
                 </>
               ) : (
-                <div className="flex items-center gap-3 bg-[#f5f7fa] dark:bg-[#12305a] py-1 px-1.5 pl-4 rounded-lg border border-[#d5dde7] dark:border-[#294466]">
+                <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800 py-1 px-1.5 pl-4 rounded-xl border border-slate-200 dark:border-slate-800 transition-colors duration-200">
                   {isLoaded && user && (
-                    <span className="text-[12.5px] font-medium text-[#0c2448] dark:text-white">
+                    <span className="text-[12.5px] font-medium text-slate-800 dark:text-slate-200">
                       Bonjour, {user.firstName}
                     </span>
                   )}
@@ -161,7 +161,7 @@ export default function Navbar() {
             initial={{ y: -16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-[#0c2448] dark:bg-[#0a1a30] pointer-events-auto inline-flex items-center h-12.5 px-2 gap-0.5 rounded-xl border border-[#294466] shadow-lg relative">
+            className="bg-[#0c2448] dark:bg-slate-900 pointer-events-auto inline-flex items-center h-12.5 px-2 gap-0.5 rounded-2xl border border-slate-700/50 dark:border-slate-800 shadow-xl relative transition-colors duration-200">
             <NavLink href="/" label="Accueil" activePath={pathname} />
             <Separator />
             <NavApropos activePath={pathname} />
