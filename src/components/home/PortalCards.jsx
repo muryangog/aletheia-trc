@@ -93,8 +93,13 @@ export default function PortalCards() {
             </div>
             <Link
               href="/ressources/devotion"
-              className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 py-2.5 px-4 rounded-xl text-xs font-bold transition-colors duration-200 self-start border border-slate-200 dark:border-slate-700 shadow-sm">
+              className="inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 py-2.5 px-4 rounded-xl text-xs font-bold transition-colors duration-200 self-start border border-slate-200 dark:border-slate-700 shadow-sm mb-2">
               Lire True Light <ArrowRight size={12} />
+            </Link>
+            <Link
+              href="/ressources/rendez-vous"
+              className="inline-flex items-center gap-2 bg-[#48a848] hover:bg-[#3d913d] text-white py-2.5 px-4 rounded-xl text-xs font-bold transition-colors duration-200 self-start shadow-sm">
+              Demander un rendez-vous <ArrowRight size={12} />
             </Link>
           </div>
         </div>

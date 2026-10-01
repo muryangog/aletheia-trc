@@ -67,6 +67,14 @@ export default function Footer() {
                 </Link>
               ))}
               <Link
+                href="/ressources/rendez-vous"
+                className="px-3.5 py-1.5 rounded-xl text-[12.5px] font-medium
+                           text-slate-300 border border-slate-700 bg-slate-800/80
+                           hover:bg-[#48a848] hover:border-[#48a848] hover:text-white
+                           transition-colors duration-200 whitespace-nowrap">
+                Rendez-vous
+              </Link>
+              <Link
                 href="/don"
                 className="px-4 py-1.5 rounded-xl text-[12.5px] font-semibold
                            bg-[#48a848] hover:bg-[#3a8a3a] text-white shadow-sm

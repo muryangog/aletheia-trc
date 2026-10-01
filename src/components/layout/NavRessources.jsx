@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Calendar, BookOpen, Sparkles } from "lucide-react";
+import { ChevronDown, Calendar, CalendarCheck, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -13,10 +13,10 @@ const ressourceLinks = [
     icon: <Calendar size={16} />,
   },
   {
-    name: "True Light",
-    sub: "La véritable lumière au quotidien",
-    href: "/ressources/devotion",
-    icon: <BookOpen size={16} />,
+    name: "Rendez-vous",
+    sub: "Rencontrer un pasteur ou le staff",
+    href: "/ressources/rendez-vous",
+    icon: <CalendarCheck size={16} />,
   },
   {
     name: "Nouveaux convertis",

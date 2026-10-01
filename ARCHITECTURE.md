@@ -6,9 +6,10 @@ Ce document détaille l'architecture globale, l'organigramme des couches logicie
 
 ## 1. Vue d'Ensemble & Paradigme Architectural
 
-Le projet suit une **architecture en couches découplées** (*Layered / Clean-Lite Architecture*), optimisée pour le **Static Site Generation (SSG)** de Next.js (`output: 'export'`) et le packaging mobile multiplateforme via **Capacitor**.
+Le projet suit une **architecture en couches découplées** (_Layered / Clean-Lite Architecture_), optimisée pour le **Static Site Generation (SSG)** de Next.js (`output: 'export'`) et le packaging mobile multiplateforme via **Capacitor**.
 
 ### Principes Clés
+
 1. **Découplage Strict** : Les pages (`src/app/`) sont ultra-légères et délèguent l'affichage aux composants métier (`src/components/`), qui consomment les données via la couche de services (`src/services/`).
 2. **Indépendance des Données** : Les données statiques (`src/data/`) sont isolées de l'UI. Si le projet migre plus tard vers une API REST, GraphQL ou Firebase, seuls les services changent, sans impacter les composants.
 3. **Compatibilité Mobile Native (Capacitor)** : Aucun runtime serveur Node.js actif en production. Le build génère 100% de fichiers statiques (HTML, CSS, JS) dans le dossier `out/`.
@@ -257,20 +258,21 @@ src/
 
 ## 5. Matrice des Responsabilités (Separation of Concerns)
 
-| Couche | Répertoire | Rôle & Responsabilité | Dépend de |
-| :--- | :--- | :--- | :--- |
-| **Pages / Routing** | `src/app/` | Point d'entrée des URL, `generateStaticParams`, métadonnées SEO | `src/components/`, `src/services/` |
+| Couche                 | Répertoire                  | Rôle & Responsabilité                                              | Dépend de                                         |
+| :--------------------- | :-------------------------- | :----------------------------------------------------------------- | :------------------------------------------------ |
+| **Pages / Routing**    | `src/app/`                  | Point d'entrée des URL, `generateStaticParams`, métadonnées SEO    | `src/components/`, `src/services/`                |
 | **Composants Domaine** | `src/components/{domaine}/` | Logique d'affichage interactive, animations (Motion), mise en page | `src/components/ui/`, `src/services/`, `src/lib/` |
-| **UI Kit** | `src/components/ui/` | Briques visuelles neutres, réutilisables (Button, Modal, Input...) | React, Tailwind CSS |
-| **Services** | `src/services/` | Logique de filtrage, tris, recherche, règles métiers | `src/data/` |
-| **Données** | `src/data/` | Objets JavaScript immutables (modèles, mock data, textes) | Aucune dépendance externe |
-| **Constantes / Lib** | `src/lib/` | Configuration statique, URLs sociales, constantes de navigation | Aucune dépendance |
+| **UI Kit**             | `src/components/ui/`        | Briques visuelles neutres, réutilisables (Button, Modal, Input...) | React, Tailwind CSS                               |
+| **Services**           | `src/services/`             | Logique de filtrage, tris, recherche, règles métiers               | `src/data/`                                       |
+| **Données**            | `src/data/`                 | Objets JavaScript immutables (modèles, mock data, textes)          | Aucune dépendance externe                         |
+| **Constantes / Lib**   | `src/lib/`                  | Configuration statique, URLs sociales, constantes de navigation    | Aucune dépendance                                 |
 
 ---
 
 ## 6. Flux de Données & Cycle de Vie
 
 ### 1. Exemple du Flux Équipe Pastorale :
+
 1. `src/data/pastors.data.js` contient la liste des pasteurs avec leurs slugs (`"evrard-sinagaye"`, etc.).
 2. `src/services/pastors.service.js` expose :
    - `pastorsService.getSlugs()` pour la génération statique.
@@ -279,6 +281,7 @@ src/
 4. La page instancie `<TeamProfile pastor={pastor} />` qui utilise `<Card>`, `<Button>` et `<Badge>` de `src/components/ui/`.
 
 ### 2. Pipeline Mobile (Capacitor) :
+
 ```
 [Code Source (src/)]
         │
